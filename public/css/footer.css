@@ -1,0 +1,59 @@
+/*底部footer*/
+.footer-top-bg{
+	background:#dadada;
+}
+.footer-bottom-bg{
+	background:#000;
+}
+.footer-top,.footer-bottom{
+	width:1200px;
+	margin:0 auto;
+	font-size:14px;
+}
+.footer-top{
+	height:210px;
+	color:#666;
+}
+.footer-bottom{
+	height:128px;
+	width:1200px;
+}
+.footer-top div,.footer-top ul,.footer-bottom div{
+	float:left;
+}
+.footer-top-left{
+	margin-top:10px;
+	margin-left:25px;
+}
+.footer-top-left-top{
+	font-size:12px;
+	margin-bottom:10px;
+}
+.footer-top-left-bottom{
+	font:bold 16px "Microsoft Yahei";
+}
+.footer-bottom p,.footer-bottom a{
+	color:#fff;
+}
+.footer-top-ul{
+	margin:0 30px;
+}
+.footer-top ul{
+	margin:27px 45px;
+}
+.footer-top ul li{
+	margin:10px 0;
+}
+.footer-top ul li:first-child{
+	font-weight:bold;
+}
+.footer-top-right{
+	padding:34px 63px;
+}
+.footer-foot{
+	margin:25px 20px;
+}
+.footer-foot:first-child{
+	margin-left:220px;
+}
+

@@ -1,0 +1,59 @@
+
+    <!-- 右侧固定导航栏 -->
+    <div class="field-fixed-div">
+        <ul class="field-fixed">
+            <li>
+                <img src="zuhao/kefu_a.png" alt=""><br>
+                <span>在线客服</span>
+                <a href="">在线<br>客服</a>
+            </li>
+            <li class="tieku"></li>
+            <li>
+                <img src="zuhao/kefu_b.png" alt=""><br>
+                <span>发布账号</span>
+                <a href="">发布<br>账号</a>
+            </li>
+            <li class="tieku"></li>
+            <li>
+                <img src="zuhao/kefu_c.png" alt=""><br>
+                <span>下载上号器</span>
+                <a href="">下载<br>上号器</a>
+            </li>
+            <li class="tieku"></li>
+            <li>
+                <img src="zuhao/kefu_d.png" alt=""><br>
+                <span>上号帮助</span>
+                <a href="">上号<br>帮助</a>
+            </li>
+            <li class="tieku"></li>
+            <li id="xzAPP">
+                <img src="zuhao/kefu_e.png" alt=""><br>
+                <span>下载APP</span>
+                <a href="">下载<br>APP</a>
+            </li>
+            <script>
+                var xzApp=document.getElementById("xzAPP");
+                xzApp.onmouseover=function(){
+                    var xzAPP=this.parentElement.parentElement.lastElementChild
+                    xzAPP.style.height="164px"
+                }
+                xzApp.onmouseout=function(){
+                    var xzAPP=this.parentElement.parentElement.lastElementChild
+                    xzAPP.style.height="0px"
+                }
+            </script>
+            <li class="tieku"></li>
+            <li>
+                <img src="zuhao/tsjy.png" alt=""><br>
+                <span>投诉/建议</span>
+                <a href="">投诉<br>建议</a>
+            </li>
+        </ul>
+        <div>
+            <img src="zuhao/kefu_f.png" alt="">
+            <a href="">返回<br>顶部</a>
+        </div>
+        <div class="xzAPP-div">
+            <img src="zuhao/ewm.png" alt="" class="xzAPP">
+        </div>
+    </div>

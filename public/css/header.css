@@ -1,0 +1,293 @@
+
+/*通用头部*/
+/*头部固定栏*/
+.hidden{
+	display:none;
+}
+.top-gdl{
+	box-shadow: 0 2px 1px #ddd;
+}
+.top{
+	width:1400px;
+	margin:4px auto;
+	margin-left:290px;
+}
+.top-gdl{
+	z-index:2;
+	width:100%;
+	position:fixed;
+	height:38px;
+	background:#f9f9f9;
+	margin-top:0px;
+}
+.top-left{
+	margin-left:60px;
+}
+.top-left ul li{
+	margin-top:0px;
+	position:relative;
+}
+.top-gdl ul{
+	float:left;
+}
+.top-gdl li{
+	float:left;
+	font-size:12px;
+}
+.top-gdl li:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.top-left:before{
+	content:"";
+	display:table;
+}
+a{
+	color:#666;
+}
+.top-lxkf{
+	display: inline-block;
+    background: #78c443;
+    width: 80px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+    position:absolute;
+    top:4px;
+}
+.lxkf{
+   color:#fff;
+}
+.top-logo{
+
+	vertical-align:middle;
+	margin-top:-4px;
+}
+.top-center-right{
+	margin-left:750px;
+	padding-bottom:5px;
+}
+.top-center li{
+	margin:0 15px;
+	line-height:30px;
+}
+
+.top-center>ul>li:nth-child(2) img{/*邮箱图片，暂时隐藏*/
+	vertical-align:middle;
+	margin-bottom:2px;
+	display:none;
+}
+.top-center>ul>li:nth-child(1),
+.top-center>ul>li:nth-child(1)>a
+{
+	color:#e6292c;
+}
+.top-center>ul>li:nth-child(3)>a{
+	color:#e6292c;
+}
+.top-center>ul>li:nth-child(4){
+	position: relative;
+	cursor: pointer;
+}
+.top-center>ul>li:nth-child(4)>div{
+	width:120px;
+	color:#e6292c;
+	font-weight:bold;
+	position:absolute;
+	top:35px;
+	left:-44px;
+}
+.top-right{
+	width:315px;
+	height:38px;
+	margin-left:10px;
+}
+.top-right li{
+	margin:0 10px;
+	line-height:30px;
+}
+.top-dl{
+	color:red;
+	cursor: pointer;
+}
+.top-shu{
+	color:#e4e4e4;
+}
+.top-right .top-bj{
+	margin-right:2px;
+	text-align:left;
+	width:60px;
+	background:url(../zuhao/up.png) no-repeat 50px 55%;
+	cursor:pointer;
+}
+/*top内容选择框*/
+.bzzx{
+	position:relative;
+}
+.top-content1{
+	border:1px solid #e3e3e3;
+	visibility:hidden;
+	position:absolute;
+	top:25px;
+	left:-2px;
+	width:187px;
+	background:#fff;
+	z-index:1;
+}
+.top-content1 div a{
+	display:inline-block;
+	margin:10px 5px;
+	font-size:12px;
+	line-height:0;
+}
+.top-content1-bottom{
+	padding:10px 20px;
+	border-top:1px dashed #e3e3e3;
+}
+.top-content1-bottom .top-content-red{
+	color:#FF594B;
+	font-size:14px;
+}
+.top-bj1:hover .top-content1{
+	visibility:visible;
+}
+.top-bj1:hover{
+	background:url(../zuhao/down.png) no-repeat 50px 55%;
+}
+.gywm{
+	position:relative;
+}
+.top-content2{
+	border:1px solid #e3e3e3;
+	visibility:hidden;
+	position:absolute;
+	top:25px;
+	left:-2px;
+	width:135px;
+	background:#fff;
+	z-index:1;
+}
+.top-content2 a{
+	display:inline-block;
+	margin:10px 5px;
+	font-size:12px;
+	line-height:0;
+}
+.top-bj2:hover .top-content2{
+	visibility:visible;
+}
+.top-bj2:hover{
+	background:url(../zuhao/down.png) no-repeat 50px 55%;
+}
+
+/*logo及搜索框*/
+.logo-bg{
+	height:150px;
+	background:#fff;
+	width:100%;
+}
+.logo{
+	float:left;
+	top:26px;
+	left:190px;
+	position: absolute;
+}
+#logo{
+	width:1240px;
+	height:122px;
+	margin:0px auto;
+	position: relative;
+	top:30px;
+}
+.qdl{
+	color:red;
+	margin-right:25px;
+}
+header div>div>a>.logo{	
+	position: absolute;
+	top:25px;
+	left:12px;
+	width:170px;
+	height:65.03px;
+}
+.sousuo{
+	position: absolute;
+	top: 45px;
+	left:675px;
+}
+header .logo{
+	line-height:100px;
+}
+header>div>div>.sousuo-wenzi{
+	top:46px;
+	left:1091px;
+	position: absolute;
+	background: #e6292c;
+    width: 100px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    padding: 0px 15px;
+    overflow: hidden;
+    letter-spacing: 2px;
+    border-radius: 0 3px 3px 0;
+    margin-top: 0px;
+    cursor: pointer;
+    border: none;
+}
+header .sousuo{
+	background-image:url(../zuhao/s1.png);
+	border:1px solid #fff;
+    width: 370px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 15px;
+    padding: 0px 5px;
+	padding-left: 60px;
+	color:red;
+	font-weight:bold;
+}
+header .sousuo:focus{
+    outline:none;
+}
+.sousuo-bj{
+	position: absolute;
+	top: 53px;
+	left:676px;
+}
+
+/*红色横条分类导航*/
+header>div:nth-child(3){
+    background:#e6292c;
+    margin:0 0 20px 0;
+}
+header>div:nth-child(3)>ul{
+    width:1100px;
+    height:40px;
+    margin:0 auto;
+}
+header>div:nth-child(3)>ul>li{
+    float:left;
+    line-height:40px;
+    margin:0 30px;
+    font-size:15px;
+}
+header>div:nth-child(3)>ul>li>a{
+    color:#fff;
+}
+header>div:nth-child(3)>ul>li:first-child{
+    margin-left:0;
+}
+header>div:nth-child(3)>ul>li:last-child{
+    float:right;
+    margin:0;
+}
+header>div:nth-child(3)>ul>li:last-child img{
+    vertical-align:middle;
+}

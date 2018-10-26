@@ -1,0 +1,213 @@
+/*公共样式*/
+a,body,ul,pre{
+	margin:0;
+	color:#666;
+}
+ul{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+/*头部*/
+header{
+	font-size:14px;
+}
+.header{
+	width:1180px;
+	height:50px;
+	padding:15px 10px;
+	margin:0 auto;
+}
+#logo{
+	height:51.39px;
+	width:130px;
+}
+.header-logo{	
+	float:left;	
+	width:300px;
+	margin-right:500px;
+}
+header div.header-logo img{	
+	vertical-align:middle;
+	float:left;	
+}
+header div.header-logo p{
+	line-height:40px;
+	float:left;	
+	padding:0 5px;
+}
+.header-right{
+	width:224px;
+	height:80px;
+	float:left;
+	margin-left:105px;
+
+}
+.header-ul{
+	float:left;
+	padding:0 14px;
+	padding-top:30px;
+}
+/*中间登录注册部分*/
+center{
+	height:843px;
+	width:1903px;
+	background-image:url(../zuhao/banner_BG.png);
+	position:relative;
+}
+.center{
+	background:#fff;
+	position:absolute;
+	height:600px;
+	width:399px;
+	right:360px;
+	bottom:100px;
+	font-size:12px;
+}
+.center-top{
+	height:61px;
+	width:300px;
+	line-height:80px;
+	border-bottom:1px solid #fccc;
+	margin:20px 0;
+}
+.zhuce{
+	position:absolute;
+	display:block;
+	font-size:17px;
+	color:#f96658;
+	border-bottom:2px solid #f86a5d;
+	height:61px;
+	width:100px;
+	top:19px;
+	left:50px;
+	font-weight:550;
+}
+span.denglu{
+	position:absolute;
+	top:20px;
+	left:235px;
+}
+a.denglu{
+	position:absolute;
+	top:20px;
+	left:300px;
+	color:red;
+}
+.input{
+	height:38px;
+	width:290px;
+	margin-bottom:40px;
+	border:1px solid #666;
+}
+.input input{
+	height:38px;
+	width:253px;
+	margin-left:0px;
+	padding-left:15px;
+	box-sizing:border-box;
+	border-width:0;
+	outline:none;
+}
+.input-top{
+	float:left;
+	width:37px;
+	height:36px;
+	background:url(../zuhao/sprite.png) no-repeat 10px 8px;
+}
+.input-middle{
+	float:left;
+	width:37px;
+	height:36px;
+	background:url(../zuhao/sprite.png) no-repeat -20px 8px;
+}
+.input-bottom{
+	float:left;
+	width:37px;
+	height:36px;
+	background:url(../zuhao/sprite.png) no-repeat -20px 8px;
+}
+.submit{
+	margin-top:25px;
+	border:0;
+	color:#fff;
+	height:40px;
+	width:292px;
+	background-color:#f96658;
+}
+.submit:hover{
+	cursor:pointer;
+}
+.qtdl-top{
+	width:304px;
+	margin:0 auto;
+}
+p span{
+	float:left;	
+	margin:30px 10px;
+	font-size:14px;
+}
+.xhx{
+	width:80px;
+	height:11px;
+	border-bottom:1px solid #666;
+}
+.xhx-center{
+	height:11px;
+}
+.qtdl-bottom{
+	width:304px;
+	margin:0 auto;
+}
+p img{
+	width:50px;
+	height:50px;
+	margin:0 20px;
+}
+input+p{
+	color:red;
+}
+
+/*脚部*/
+
+footer{
+	color:#666;
+	font-size:13px;
+}
+footer>div{
+	width:1200px;
+	margin:0 auto;
+}
+.footer-left{
+	float:left;
+	height:30px;
+	width:597px;
+	padding:30px 0px;
+}
+.footer-top{
+	float:left;
+	margin:15px auto;
+}
+.footer-right{
+	float:left;
+	height:81px;
+	margin:45px 0px;
+}
+footer div.footer-right li{
+	float:left;
+	width:80px;
+	height:83px;
+	text-align:center;
+}
+.shu{
+	float:left;
+	margin:15px 13px;
+}
+.bqsm{
+	padding:0 110px;
+}
+.footer-a{
+	width:650px;
+	padding-left:170px;
+}

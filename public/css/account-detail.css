@@ -1,0 +1,403 @@
+body{
+    background:#f1f2f3;
+}
+/*中间部分*/
+section{
+    width:1120px;
+    margin:0 auto;
+}
+/*第一部分*/
+.adiv{
+    height:560px;
+    box-sizing:border-box;
+    padding:20px 5px 20px 20px;
+    background:#fff;
+}
+/*游戏账号大中小图片*/
+/*中图*/
+#AllKindsImg{
+    position: relative;
+    width:420px;
+    float: left;
+}
+#medium-img{
+    width:410px;
+    height:410px;
+    background:#eee;
+}
+#medium-img img{
+    width:410px;
+    height:410px;
+}
+/*小图*/
+#min-img{
+    height:62px;
+    margin:20px 0;
+}
+#min-img img{
+    width:60px;
+    height:60px;
+    margin-right:3px;
+    vertical-align:middle;
+    border:1px solid #ddd;
+}
+/*大图*/
+#max-img{
+    position: absolute;
+    width:410px;
+    height:410px;
+    left:420px;
+    top:0;
+    background:url() no-repeat;
+    background-size:820px 820px;
+}
+/*放大镜*/
+.d-none{
+    display: none;
+}
+.mask{
+    width:410px;
+    height:410px;
+    position:absolute;
+    top:0;
+    z-index: 2;
+}
+.smask{
+    width:160px;
+    height:160px;
+    background:#ddd;
+    position:absolute;
+    top:0;
+    opacity: 0.6;
+}
+
+/*分享及收藏*/
+#AllKindsImg>div:nth-child(4){
+    font-size:13px;
+    color:#666;
+}
+#AllKindsImg>div:nth-child(4)>span:nth-child(1){
+    background:url(../zuhao/icons_0_16.png) no-repeat;
+    padding-left:20px;
+    margin-right:30px;
+}
+#AllKindsImg>div:nth-child(4)>span{
+    cursor:pointer;
+}
+#AllKindsImg>div:nth-child(4)>span:nth-child(3){
+    float:right;
+    margin-right:20px;
+    font-weight:bold;
+}
+#AllKindsImg>div:nth-child(4)>span:nth-child(2):hover{
+    color:#2C7AF1;
+}
+
+
+
+/*右侧账号详情*/
+.particulars-top{
+    width:630px;
+    float:right;
+}
+/*详情介绍*/
+.particulars-top>p:nth-child(1){
+    width:97%;
+    font-weight:bold;
+    font-size:16px;
+    color:#333;
+    height:60px;
+    line-height:30px;
+}
+.particulars-top>p:nth-child(1)>span{
+    color:rgb(0,0,255)
+}
+/*大区与上号方式*/
+.particulars-top>p:nth-child(2){
+    width:97%;
+    color: #F03D40;
+    font-size: 14px;
+    margin-top:10px;
+}
+.particulars-top>p:nth-child(2)>span>b
+{
+    color: #F03D40;
+    font-size: 12px;
+}
+
+.particulars-top>p:nth-child(2)>span{
+    float: right;
+    color:#666;
+    font-size: 12px;
+}
+/* 卖家情况 */
+.particulars-top>div:nth-child(3){
+    width:610px;
+    height:130px;
+    background:#99999930;
+    color:#666;
+    font-size:13px;
+    margin-top:10px;
+}
+.particulars-top>div:nth-child(3)>div{
+    height:33%;
+    line-height:40px;
+    padding:5px 5px;
+    box-sizing:border-box;
+}
+.particulars-top>div:nth-child(3)>div:nth-child(3){
+border-top:1px dashed #9999;
+}
+.particulars-top>div:nth-child(3)>div>a:not(:last-child){
+    display: inline-block;
+    width:20px;
+    height:20px;
+    background:#f78b15;
+    line-height:20px;
+    color:#fff;
+    font-weight:bold;
+    text-align: center;
+    margin-right:5px;
+    border-radius:3px;
+}
+.particulars-top>div:nth-child(3)>div>a>img{
+    vertical-align:middle;
+    float:right;
+    height:33px;
+    padding-bottom:5px;
+    margin-right:10px;
+}
+/*租金详情*/
+.particulars-top>ul{
+    height:100px;
+    margin-top:20px;
+}
+.particulars-top>ul>li{
+    text-align:center;
+    height:40px;
+    line-height:40px;
+    float:left;
+    width:100px;
+    color:#fff;
+    font-size:14px;
+}
+.particulars-top>ul>li>span{
+    display:block;
+    margin-right:3px;
+    border:1px solid #99999930;
+}
+.particulars-top>ul>li>span:nth-child(1){
+    background:#df3234;
+    font-weight:bold;
+}
+.particulars-top>ul>li>span:nth-child(2){
+    color:#666;
+    font-size:12px;
+}
+/*押金及提示*/
+.particulars-top>p:nth-child(5){
+    font-weight:bold;
+    font-size:13px;
+    margin-top:10px;
+}
+.particulars-top>p:nth-child(5)>span:nth-child(1){
+    color:#F03D40;
+    font-size:15px;
+}
+.particulars-top>p:nth-child(5)>span:nth-child(2){
+    display: inline-block;
+    text-align:center;
+    width:100px;
+}
+.particulars-top>p:nth-child(5)>span:nth-child(2)>a{
+    color:#2C7AF1;
+    font-size:12px;
+}
+.particulars-top>p:nth-child(6){
+    color:#f00;
+    font-size:12px;
+}
+/*提交按钮  立即租用*/
+.particulars-top>input{
+    border: 1px solid transparent;
+    outline: none; 
+    background:#df3234;
+    width:165px;
+    height:40px;
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:30px;
+    cursor: pointer;
+}
+.particulars-top>input:hover{
+    background:#b43234;
+}
+/*选择账号租用规格*/
+.affirms{
+    box-sizing:border-box;
+}
+.affirm{
+    height:42px;
+    border:2px solid #dd191c !important;
+    border-top:none;
+    background:url(../zuhao/cus.png) 82px 30px no-repeat;
+}
+
+section>div:nth-child(2){
+    margin-top:30px;
+}
+/**/
+.bcdiv{
+    display: flex;
+    justify-content:space-between;
+}
+/*第二部分*/
+#recommend-list{
+    width:210px;
+    background:#fff;
+    padding:0 25px;
+    box-sizing:border-box;
+}
+.bdiv>div:nth-child(1){
+    height:55px;
+    background:#fff;
+    padding-top:15px;
+}
+.bdiv>div:nth-child(1)>div{
+    width:80%;
+    height:25px;
+    background:#f7f7f7;
+    padding:10px 0 0 10px;
+    margin:0 auto;
+}
+.bdiv>div:nth-child(1)>div>div{
+    width:100%;
+    height:18px;
+    line-height:18px;
+    font-size:13px;
+    color:#666;
+    font-weight:bold;
+    border-left:2px solid #F03D40;
+    padding-left:10px;
+}
+.recommend-list{
+    max-height:1171px;
+    overflow:hidden;
+}
+.recommend-list>div{
+    margin-left:6px;
+}
+.recommend-list>div img{
+    width:95%;
+}
+.recommend-list>div>div{
+    width:95%;
+}
+
+.recommend-list>div>div>span{
+    display:inline-block;
+    width:50%; 
+    font-size:12px;
+}
+.recommend-list>div>div>span>em{
+    font-style:normal;
+}
+.recommend-list>div>div>span:nth-child(1){
+    color:#666;
+    text-align:left;
+}
+.recommend-list>div>div>span:nth-child(2){
+    color:#e33c3f;
+    font-weight:bold;
+    text-align:right;
+}
+.recommend-list>div>a:nth-child(3){
+    font-size:12px;
+    color:#666;
+}
+/*第三部分*/
+.cdiv{
+    background:#fff;
+    width:870px;
+}
+/*span账户信息 用户评价 租赁须知*/
+.cdiv-top{
+    border-bottom:1px solid #ececec;
+    margin-left:20px;
+}
+.cdiv-top>span{
+    display:inline-block;
+    width:120px;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    cursor: pointer;
+    color: #949694;
+    font-weight: bold;
+    font-size: 10pt;
+    margin-top:20px;
+}
+/*角色各类信息*/
+.cdiv-accounts>div:not(:first-child){
+    padding:0 60px 0 60px;
+}
+.cdiv-accounts>div>.cdiv-accountsa{
+    display:flex;
+    justify-content:space-around;
+    color:#666;
+    font-size:14px;
+    margin:20px 0;
+}
+.cdiv-accounts>div>div>ul>li{
+    height:35px;
+    line-height:35px;
+}
+/*装备*/
+.cdiv-title{
+    color: #e6292c;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    border-bottom: 1px solid #ececec;
+    line-height: 30px;
+    margin-bottom: 20px
+}
+.cdiv-titles{
+    line-height: 35px;
+    height: 35px;
+    color: #45a9f5;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    background: #f3f3f3;
+    border-top:1px solid #45a9f5;
+}
+.cdiv-titles+div{
+    padding:30px 0 30px 80px;
+}
+.cdiv-titles+div>span{
+    display:block;
+    width:120px;
+    height: 14px;
+    padding-top: 11px;
+    text-align: center;
+    font-size:13px;
+    color: #866902;
+}
+/*账号详细描述*/
+.cdiv-description>div{
+    overflow:hidden;
+    height: auto;
+    text-indent: 2em;
+    font-size: 13px;
+    color: #666;
+    line-height: 25px;
+    padding: 10px;
+}
+/*游戏截图*/
+.cdiv-accounts>div:last-child>div>img{
+    width:760px;
+}
+
+

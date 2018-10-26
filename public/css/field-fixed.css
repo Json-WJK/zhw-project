@@ -1,0 +1,75 @@
+.field-fixed-div{
+    position:fixed;
+	right:50px;
+	top:200px;
+}
+.field-fixed,.field-fixed+div{
+    border-radius:15px;
+    box-shadow:0 0 10px #999;
+    width:70px;
+    overflow: hidden;
+}
+.field-fixed>li,.field-fixed+div{
+    box-sizing:border-box;
+    background:#fff;
+    width:70px;
+    height:80px;
+    font-size:11px;
+    color:#999;
+    text-align:center;
+    padding-top:15px; 
+    position: relative;
+}
+.field-fixed>.tieku{
+    height:0;
+    width:40px;
+    border-top:1px solid #99999960;
+    margin-left:15px;
+    padding-top:0px;
+}
+.field-fixed+div{
+    height:70px;
+    margin-top:15px;
+    position: relative;
+}
+.field-fixed>li>a{
+    box-sizing:border-box;
+    padding-top:17px; 
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    background:#ff6051;
+    color:#fff;
+    font-size:17px;
+    display:none;
+}
+.field-fixed+div>a{
+    box-sizing:border-box;
+    padding-top:13px; 
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    background:#ff6051;
+    color:#fff;
+    font-size:17px;
+    display:none;
+}
+.field-fixed+div:hover a{
+    display:block;
+}
+.field-fixed>li:hover a{
+    display:block;
+}
+.xzAPP-div{
+    position:absolute;
+    top:325px;
+    left:-145px;
+    height:0px;
+    overflow: hidden; 
+    transition:.3s;
+}
+
+
+

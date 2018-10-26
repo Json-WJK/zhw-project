@@ -1,0 +1,416 @@
+body{
+    background:#f1f2f3;
+}
+header{
+    background:#fff;
+}
+/*中间内容部分*/
+/*分类选择游戏*/
+
+section{
+    width:1230px;
+    height:3500px;
+    margin:0 auto;
+}
+.account-list-ac{
+    height:270px;
+    margin-bottom:40px;
+    background:#fff;
+}
+section>.account-list-ac>span{
+    display:block;
+    float:left;
+    height:250px;
+    width:125px;
+    text-align:right;
+    padding:30px 0 0 0;
+    box-sizing:border-box;
+    font-size:14px;
+    color:#666;
+}
+section>.account-list-ac>.search-imgs{
+    float:right;
+    display: flex;
+    flex-wrap:wrap;
+    height:145px;
+    width:1061px;
+    margin-top:20px;
+    padding-left:15px;
+    box-sizing:border-box;
+}
+.search-imgs>div{
+    display:block;
+    width:113px;
+    box-sizing:border-box;
+}
+/*游戏分类每张图片的样式*/
+
+.search-imgs>div img{
+    display:inline-block;
+    width:63px;
+    height:42px;
+}
+.search-imgs>div:nth-child(1){
+    padding-left:12px;
+    padding-top:7px;
+}
+.search-imgs>div:nth-child(1) img{
+    width:63px;
+    height:42px;
+}
+.search-imgs>div:nth-child(2) img{
+    width:79px;
+    height:53px;
+}
+.search-imgs>div:nth-child(3){
+    padding-top:14px;
+}
+.search-imgs>div:nth-child(3) img{
+    width:96px;
+    height:27px;
+}
+.search-imgs>div:nth-child(4){
+    padding:8px 0 0 12px;
+}
+.search-imgs>div:nth-child(4) img{
+    width:81px;
+    height:45px;
+}
+.search-imgs>div:nth-child(5){
+    margin-left:10px;
+    width:100px;
+}
+.search-imgs>div:nth-child(5) img{
+    width:79px;
+    height:58px;
+}
+.search-imgs>div:nth-child(6){
+    padding-right:10px;
+    padding-top:10px;
+}
+.search-imgs>div:nth-child(6) img{
+    width:98px;
+    height:34px;
+}
+.search-imgs>div:nth-child(7){
+    padding:7px 0 0 6px;
+}
+.search-imgs>div:nth-child(7) img{
+    width:75px;
+    height:44px;
+}
+.search-imgs>div:nth-child(8){
+    padding:10px 0 0 8px;
+}
+.search-imgs>div:nth-child(8) img{
+    width:90px;
+    height:32px;
+}
+.search-imgs>div:nth-child(9){
+    padding:10px 0 0 25px;
+}
+.search-imgs>div:nth-child(9) img{
+    width:55px;
+    height:48px;
+}
+.search-imgs>div:nth-child(10) img{
+    width:77px;
+    height:57px;   
+}
+.search-imgs>div:nth-child(11){
+    padding-left: 18px; 
+}
+.search-imgs>div:nth-child(11) img{
+    width:46px;
+    height:46px;
+}
+.search-imgs>div:nth-child(12) img{
+    width:91px;
+    height:54px;
+}
+.search-imgs>div:nth-child(13){
+    padding-left: 10px;
+    padding-top:10px;
+}
+.search-imgs>div:nth-child(13) img{
+    width:78px;
+    height:26px;
+}
+.search-imgs>div:nth-child(14) img{
+    width:98px;
+    height:44px;
+}
+.search-imgs>div:nth-child(15) img{
+    width:86px;
+    height:42px;
+}
+.search-imgs>div:nth-child(16) img{
+    width:88px;
+    height:52px;
+}
+.search-imgs>div:nth-child(17){
+    padding:0 0 0 5px;
+}
+.search-imgs>div:nth-child(17) img{
+    width:90px;
+    height:40px;
+}
+
+.search-imgs>div:nth-child(18) img{
+    width:98px;
+    height:50px;
+}
+
+section>.account-list-ac>.search-as{
+    float:right;
+    height:105px;
+    width:1061px;
+    display: flex;
+    flex-wrap:wrap;
+}
+section>.account-list-ac>.search-as>a{
+    display:block;
+    font-size:14px;
+    margin:0px 14px;
+    padding:0 10px;
+    height:25px;
+    line-height:25px;
+    background:#f6f6f6;
+    border-radius:15px;
+}
+
+/*游戏查询结果列表*/
+#account-list{
+    float:left;
+    width:997px;
+    background:#fff;
+}
+.account-list{
+    display:flex;
+    flex-wrap:wrap;
+    max-height:4000px;
+    overflow:hidden;
+}
+.account-list>div{
+    width:92%;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    border-bottom:1px dashed #aaa;
+}
+.account-list>div:hover{
+    background:#f6f6f6;
+}
+
+/*游戏查询结果列表---第一部分*/
+.account-list .account-list-a{
+    width:120px;
+    height:146px;
+    box-sizing:border-box;
+    padding-top:20px;
+}
+.account-list .account-list-a img{
+    width:100px;
+    margin:0 auto;
+}
+/*游戏查询结果列表---第二部分*/
+.account-list .account-list-b{
+    width:450px;
+    height:146px;
+    box-sizing:border-box;
+    padding-top:10px;
+}
+.account-list .account-list-b>a:nth-child(1){
+    color: #f00;
+    font-weight: bold;
+    line-height: 25px;
+    font-size: 13px;
+    font-size: 15px;
+}
+.account-list .account-list-b>a:nth-child(3){
+    font-size: 15px;
+    color:#000;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}      
+.account-list .account-list-b>span:nth-child(5){
+    font-size: 15px;
+    font-weight: bold;
+    color: #F03D40;
+    
+}
+.account-list .account-list-b>span:nth-child(7),
+.account-list .account-list-b>span:nth-child(9)
+{
+    line-height: 25px;
+    font-size: 13px;
+}         
+.account-list .account-list-b>span:nth-child(8),
+.account-list .account-list-b>span:nth-child(10)
+{
+    line-height: 25px;
+    font-size: 13px;
+    color:#f00;
+}   
+.account-list .account-list-b>a:nth-child(12),
+.account-list .account-list-b>a:nth-child(13),
+.account-list .account-list-b>a:nth-child(14),
+.account-list .account-list-b>a:nth-child(15)
+{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    line-height:20px;
+    background:#f78b15;
+    color:#fff;
+    text-align:center;
+    margin-left:5px;
+    font-size:12px;
+    border-radius:3px;
+}
+/*游戏查询结果列表---第三部分*/
+.account-list .account-list-c{
+    width:200px;
+    height:146px;
+    box-sizing:border-box;
+    padding-top:35px;
+}
+.account-list .account-list-c>div{
+    color: rgb(72, 99, 120);
+    font-size:12px;
+    line-height:30px;
+}
+.rental{
+    color: #f78b15;
+    font-size:12px;
+}
+/*游戏查询结果列表---第四部分*/
+.account-list .account-list-d{
+    width:140px;
+    height:146px;
+    box-sizing:border-box;
+    padding-top:65px;
+}
+.account-list .account-list-d>button{
+    background:#fff;
+    border:1px solid #ee3a3d;
+    color:#ee3a3d;
+    height: 28px;
+    width:128px;
+}
+.account-list .account-list-d>button>span{
+    color:#f78b15;
+    font-weight:bold;
+}
+.account-list .account-list-d>button:hover{
+    background:#ee3a3d;
+    color:#fff;
+   
+}
+.account-list .account-list-d>button:hover span{
+    color:#fff;
+}
+
+/*分页*/
+.paging{
+    padding:8px 0;
+    padding-right:50px;
+    text-align:right;
+    font-size:13px;
+    color:#666;
+    background:#f6f6f6;
+    width:87%;
+    margin:10px auto;
+}
+.paging>a{
+    display: inline-block;
+    min-width:20px;
+    border:1px solid #f0f0f0;
+    text-align:center;
+    padding:1px 3px;
+    margin:0 3px;
+}
+.paging>a:hover{
+    border:1px solid #e33c3f;
+}
+.paging>span>b{
+    color:#e33c3f;
+}
+.paging>input{
+    width:30px;
+    height:25px;
+    border-radius:5px;
+    text-align: center;
+}
+.paging>button{
+    background:#e33c3f;
+    border:none;
+    border-radius: 5px;
+    color:#fff;
+    width:50px;
+    height:25px;
+}
+
+/*右侧推荐游戏列表*/
+#recommend-list{
+    float:right;
+    width:210px;
+    background:#fff;
+    padding:0 25px;
+    box-sizing:border-box;
+}
+#recommend-list>div:nth-child(1){
+    width:93%;
+    height:25px;
+    background:#f7f7f7;
+    padding:10px 0 0 10px;
+    margin:10px auto;
+}
+#recommend-list>div:nth-child(1)>div{
+    width:100%;
+    height:18px;
+    line-height:18px;
+    font-size:13px;
+    color:#666;
+    font-weight:bold;
+    border-left:2px solid #F03D40;
+    padding-left:10px;
+}
+.recommend-list{
+    max-height:2576px;
+    overflow:hidden;
+}
+.recommend-list>div{
+    margin-left:6px;
+}
+.recommend-list>div img{
+    width:95%;
+}
+.recommend-list>div>div{
+    width:95%;
+}
+
+.recommend-list>div>div>span{
+    display:inline-block;
+    width:50%; 
+    font-size:12px;
+}
+.recommend-list>div>div>span>em{
+    font-style:normal;
+}
+.recommend-list>div>div>span:nth-child(1){
+    color:#666;
+    text-align:left;
+}
+.recommend-list>div>div>span:nth-child(2){
+    color:#e33c3f;
+    font-weight:bold;
+    text-align:right;
+}
+.recommend-list>div>a:nth-child(3){
+    font-size:12px;
+    color:#666;
+}
+
