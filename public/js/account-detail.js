@@ -6,10 +6,14 @@ $(function(){
         )
     }
     /*请求账号租金详情 */
+    var myDate = new Date();
+    var m=myDate.getMinutes(); 
+    var h=myDate.getHours(); 
+    var date=h+":"+m
     $.ajax({
         url:"http://localhost:1997/detail/details",
         type:"get",
-        data:{game_id},
+        data:{game_id,date},
         dataType:"json",
         success:function(res){
             var html="";
@@ -72,8 +76,10 @@ $(function(){
                 success:function(res){
                     /*立即租号 */
                 $("input[type=button]").click(function(){
+                    var url1=location.pathname.slice(1);
+                    var url2=location.search.slice(1)
+                    if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
                     if(res.ok==1) location.href=`order.html?game_id=${game_id}`;
-                    else{location.href="verify.html"+location.search};
                 })
                 }
             })
@@ -81,6 +87,7 @@ $(function(){
         }
     })
     //推荐账号列表
+    
     $.ajax({
         url:"http://localhost:1997/search/recommendlist",
         type:"get",
@@ -114,6 +121,7 @@ $(function(){
         element.innerHTML=html;
         })
         
+        /*左侧图片 */
         $.ajax({
             url:"http://localhost:1997/detail/gamegallery",
             type:"get",

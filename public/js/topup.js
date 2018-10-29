@@ -61,50 +61,36 @@ $(function(){
         $("#nickname").html(html)
         }
     })
-    var uname=location.search.split("=")[1]
-    var myDate = new Date();
-    var m=myDate.getMinutes(); 
-    var h=myDate.getHours(); 
-    var date=h+":"+m
-    $.ajax({
-        url:"http://localhost:1997/user/lease",
-        type:"post",
-        data:{uname,date},
-        dataType:"json",
-        success:function(res){
-            var html="";
-            /*将返回的结果拼接到一起 */
-            for(var i in res.name){//将每个name放入每个account中
-                res.account[i].game_name=res.name[i].game_name
-            }
-            for(var div of res.account){
-            var {
-                game_describe,
-                game_overall_img,
-                game_prices,
-                game_hire,
-                game_name,
-                game_id
-            }=div
-            html+=`
-            <div class="zh-list">
-                <img src="${game_overall_img}" alt="">
-                <div>
-                    <p>订单号：107613351 货架号：1937724</p>
-                    <p>${game_describe}</p>
-                    <p>角色名：${game_name}</p>
-                </div>
-                <div>
-                    <p>商品价格：${game_prices}元/小时</p>
-                    <p>下单时间：2小时</p>
-                    <p>押金：${game_hire}</p>
-                </div>
-                <span>已完成</span>
-                <span><a href="account-detail.html?game_id=${game_id}">订单详情</a></span>
-            </div>
-            `
-        }
-            $(".r-tenant").append(html)
+    /*充值方式 */
+    var $zfb=$(".zfb");
+    var $wx=$(".wx");
+    var $img=$(".r-t-topupa>img")
+    $zfb.click(function(){
+        $(this).addClass("hover").next().removeClass("hover");
+        $img.attr("src","zuhao/alipay_p.png");
+    })
+    $wx.click(function(){
+        $(this).addClass("hover").prev().removeClass("hover");
+        $img.attr("src","zuhao/wxpay_p.png");
+    })
+    /*充值 */
+    var $topup=$("#rtopup");
+    $topup.click(function(){
+        var myDate = new Date();
+        var m=myDate.getMinutes(); 
+        var h=myDate.getHours(); 
+        var date=h+":"+m
+        var up=$(".r-t-topupa [type=text]").val()//充值金额
+        if(up>0){
+            $.ajax({
+                url:"http://localhost:1997/user/recharge",
+                type:"post",
+                data:{uname,up,date},
+                dataType:"json",
+                success:function(res){
+                    console.log(res)
+                }
+            })
         }
     })
 })

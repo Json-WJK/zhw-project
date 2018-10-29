@@ -106,15 +106,21 @@ $(function(){
         var $hint=out.prev("div.hidden");
         out.click(function(){
             $hint.removeClass("hidden");
+            var myDate = new Date();
+            var m=myDate.getMinutes(); 
+            var h=myDate.getHours(); 
+            var date=h+":"+m
         $.ajax({
             url:"http://localhost:1997/user/signout",
             type:"get",
+            data:{date},
             success:function(){
                 setInterval(function(){
-                    location.reload(); 
+                    location.href="index.html"//退出登录则返回首页
                 },2000)      
             }
         })
+        
         })
         
     }

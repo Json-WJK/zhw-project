@@ -1,9 +1,28 @@
 $(function(){
-    var game_id=location.search.split("=")[1]
+    if(location.search.indexOf("game_id=")!=-1){
+        var game_id=decodeURI(
+        location.search.split("=")[1]
+        )
+    }
+    /*首先判断该用户是否登录 */
+    $.ajax({
+        url:"http://localhost:1997/user/islogin",
+        type:"get",
+        dataType:"json",
+        success:function(res){
+            var url1=location.pathname.slice(1);
+            var url2=location.search.slice(1)
+            if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
+        }
+    })
+    var myDate = new Date();
+    var m=myDate.getMinutes(); 
+    var h=myDate.getHours(); 
+    var date=h+":"+m
     $.ajax({
         url:"http://localhost:1997/order/affirm",
         type:"post",
-        data:{game_id},
+        data:{game_id,date},
         dataType:"json",
         success:function(res){
             var {
@@ -76,6 +95,36 @@ $(function(){
         $(".pay>button").click(function(){
             $PayPwd.show()
         })
+        
+        function win(){//租号成功
+            var myDate = new Date();
+            var m=myDate.getMinutes(); 
+            var h=myDate.getHours(); 
+            var date=h+":"+m
+            var uname=$(".uname").html();
+            /*支付成功后，将该账号添加至个人信息租过的账号列表中 */
+            $.ajax({
+                url:"http://localhost:1997/order/add",
+                type:"post",
+                data:{game_id,uname,date},
+                dataType:"json",
+                success:function(res){
+                }
+            })
+        }
+        function fee(){//完成扣费
+            var uname=$(".uname").html();
+            var down=$("#total").html().slice(1);
+            /*支付成功后，将该账号添加至个人信息租过的账号列表中 */
+            $.ajax({
+                url:"http://localhost:1997/order/fee",
+                type:"post",
+                data:{uname,down,date},
+                dataType:"json",
+                success:function(res){
+                }
+            })
+        }
         // 点击确认下单
         $(".qr").click(function(){
             var uname=$(".top-center>ul>li>a.uname").html()
@@ -92,6 +141,8 @@ $(function(){
                     if(balance>$total.html().substr(1)){
                         $PayPwd.hide()
                         $hint.show()
+                        win()//租号成功
+                        fee()//完成扣费
                     }else{
                         $PayPwd.hide()
                         alert("余额不足，请充值")
@@ -101,6 +152,7 @@ $(function(){
             
         })
         
+            
         //点击取消 关闭窗口
         $(".qx").click(function(){
             $PayPwd.hide()
@@ -116,6 +168,7 @@ $(function(){
         }
         
     })
+    
 })
 
 

@@ -3,10 +3,14 @@ $(function(){//login.html中jquery-3.2.1.js
       var uname=$("[type=text]").val();
       var upwd=$("[type=password]").val();
       (async function(){
+        var myDate = new Date();
+        var m=myDate.getMinutes(); 
+        var h=myDate.getHours(); 
+        var date=h+":"+m
         var res=await $.ajax({
           url:"http://localhost:1997/user/login",
           type:"post",
-          data:{uname,upwd},
+          data:{uname,upwd,date},
           dataType:"json"
         })
         if(res.ok==0)
