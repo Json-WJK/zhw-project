@@ -1,0 +1,321 @@
+section{
+    width:1100px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-around;
+}
+/*左侧列表-总体布局*/
+.l-list{
+    background:#fff;
+    width:155px;
+    font-size:14px;
+    margin-right:5px;
+}
+.l-heng{
+    background:#eee;
+    height:1px;
+    width:80%;
+    margin:0 auto;
+}
+.l-list>a{
+    display:block;
+    height:42px;
+    line-height:42px;
+    font-weight:bold;
+    box-sizing:border-box;
+    padding-left:35px;
+}
+.l-list>a:nth-child(1){
+    color:rgb(247, 71, 62);
+}
+.l-list>ul>li{
+    height:32px;
+    line-height:32px;
+    box-sizing:border-box;
+    padding-left:25px;
+}
+/*左侧列表背景图*/
+.l-imgs{
+    background:url(../zuhao/menuPerson.png) no-repeat;
+}
+.l-a1{
+    background-position:-143px 0;
+}
+.l-a2{
+    background-position:10px -42px;
+}
+.l-a3{
+    background-position:10px -84px;
+}
+.l-a4{
+    background-position:10px -126px;
+}
+.l-a5{
+    background-position:10px -168px;
+}
+.l-a6{
+    background-position:10px -210px;
+}
+.l-a7{
+    background-position:10px -252px;
+}
+.l-a8{
+    background-position:10px -294px;
+}
+.l-a9{
+    background-position:10px -336px;
+}
+
+/*右侧个人资料*/
+.r-data{
+    width:930px;
+    background:#fff;
+    height:158px;
+    display:flex;
+    justify-content: space-around;
+    color:#555;
+    font-size:14px;
+    position: relative;
+    box-sizing:border-box;
+    padding:30px 20px;
+}
+/*头像*/
+.r-data>div:nth-child(1){
+    height:97px;
+    width:96px;
+    border-radius:50%;
+    overflow:hidden;
+}
+/*账号名称及安全*/
+.r-data>div:nth-child(2){
+    font-size:13px;
+}
+.r-data>div:nth-child(2)>p{
+    margin-bottom:12px;
+}
+.r-data>div:nth-child(2)>p:nth-child(1){
+    font-weight:bold;
+}
+/*安全等级条*/
+.r-bar{
+    display:inline-block;
+    width:50px;
+    height:8px;
+    background:#eee;
+    margin-right:5px;
+    position: relative;
+}
+.r-bar>b{
+    display:inline-block;
+    width:40px;
+    height:8px;
+    background:#04DB04;
+    position: absolute;
+}
+/*信誉下侧四张图片*/
+.r-dataImgsBg{
+    display: inline-block;
+    width:21px;
+    height:21px;
+    background:url(../zuhao/psonHZ_13.png) no-repeat;
+}
+.r-dataImgs1{
+   background-position:0 0;
+}
+.r-dataImgs2{
+    background-position:0 -30px;
+}
+.r-dataImgs3{
+    background-position:0 -60px;
+}
+.r-dataImgs4{
+    background-position:0 -90px;
+}
+/*第三部分*/
+.r-data>div:nth-child(3){
+    width:575px;
+}
+/*个人信息上半部分*/
+.balance{
+    display:flex;
+    width:605px;
+    height:50px;
+    flex-wrap: nowrap;
+    text-align:center;
+    margin-left:30px;
+}
+.r-dataShu{
+    border-left:1px solid #eee;
+}
+.balance>div{
+    margin:0 15px;
+}
+.balance>div>span{
+    color:#f96658;
+}
+.balance>div:last-child{
+    width:70px;
+    height:28px;
+    line-height:28px;
+    border-radius:20px;
+    color:#fff;
+    font-size:13px;
+    box-sizing:border-box;
+    padding-left:15px;
+    background:#f96658 url(../zuhao/psonHZ_57.png) no-repeat 8px 5px;
+}
+.balance>img:nth-child(1){
+    position:absolute;
+    right:0;
+    top:0;
+}
+/*个人信息下半部分*/
+.r-status>span{
+    display: inline-block;
+    width:185px;
+    height:42px;
+    line-height:42px;
+    text-align:center;
+    background:#f6f6f6;
+}
+.r-status>span>u{
+    color:#f96658;
+}
+
+/*用户身份（租客与号主）*/
+.identity{
+    display:flex;
+    justify-content: center;
+    background: #fff;
+    margin-top:10px;
+    padding:30px 0;
+}
+.identity>div:nth-child(2){
+    width:134px;
+    height:34px;
+    line-height:34px;
+    border:1px solid #f96658;
+    text-align:center;
+    font-size:14px;
+    background:#f96658;
+    color:#fff;
+    border-radius:8px 0 0 8px;
+    z-index:2;
+}
+.identity>div:nth-child(3){
+    width:134px;
+    height:34px;
+    line-height:34px;
+    border:1px solid #f96658;
+    text-align:center;
+    font-size:14px;
+    color:#f96658;
+    border-radius:0 8px 8px 0;
+    z-index:2;
+}
+.identity-h{
+    background:#eee;
+    height:1px;
+    width:329px;
+    margin-top:17px;
+}
+
+/*租号部分*/
+.r-tenant{
+    background:#fff;
+    box-sizing:border-box;
+    padding:0 40px;
+}
+.r-zx>p{
+    font-size:14px;
+    font-weight:bold;
+    height:30px;
+    background:url(../zuhao/psonHZ_35.png) no-repeat 0px 0px;
+    padding:0 30px;
+}
+.r-zx>div{
+    width:615px;
+    margin:0 auto;
+}
+.r-zx>div>span{
+    display:inline-block;
+    width:250px;
+    font-size:14px;
+    color:#666;
+    height:30px;
+    line-height:30px;
+}
+.r-zx>div>span:nth-child(3){
+    width:100px;
+}
+/*我租的订单 我常租的订单 我收藏的订单*/
+.r-tenant>div:nth-child(2){
+    margin:20px 0;
+}
+.r-class-bj{
+    display: inline-block;
+    font-weight:bold;
+    color:#555;
+    font-size:14px;
+    height:23px;
+    padding-left:30px;
+    margin-right:30px;
+    background:url(../zuhao/psonHZ_100.png) no-repeat;
+}
+.r-class-bj:nth-child(1){
+    background-position:0 -89px;
+}
+.r-class-bj:nth-child(2){
+    background-position:0 -129px;
+}
+.r-class-bj:nth-child(3){
+    background-position:0 -169px;
+}
+/*订单列表*/
+.zh-list{
+    display:flex;
+    width:850px;
+    height:111px;
+    font-size:12px;
+    color:#666;
+    justify-content:space-around;
+    box-sizing:border-box;
+    margin-top:5px;
+    border-bottom:1px solid #f6f6f6;
+}
+.zh-list>img{
+    display: inline-block;
+    width:90px;
+    height:90px;
+    margin-top:10px;
+}
+.zh-list>div>p{
+    margin-bottom:5px;
+}
+.zh-list>div:nth-child(2)>p:nth-child(2){
+    color:#f96658;
+    width:360px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.zh-list>span:last-child{
+    width:90px;
+    height:28px;
+    border:1px solid #0ea0e0;
+    color:#0ea0e0;
+    border-radius:15px;
+    text-align:center;
+    line-height:28px;
+}
+.zh-list>div:nth-child(2),
+.zh-list>div:nth-child(3)
+{
+    margin-top:25px;
+}
+.zh-list>span:nth-child(4){
+    margin-top:50px;
+}
+.zh-list>span:nth-child(5){
+    margin:45px 0 0 10px;
+}

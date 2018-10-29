@@ -1,0 +1,122 @@
+$(function(){
+    var game_id=location.search.split("=")[1]
+    $.ajax({
+        url:"http://localhost:1997/order/affirm",
+        type:"post",
+        data:{game_id},
+        dataType:"json",
+        success:function(res){
+            var {
+                details_id,
+                game_id,
+                game_family_id,
+                details_name,
+                adds,
+                duration,
+                server,
+                hour,
+                day,
+                morning,
+                night,
+                hours,
+                week,
+                hire,
+                game_name,
+                game_overall_img,
+                game_starting
+            }=res[0];
+            var html=`
+            <div>
+                <img src="${game_overall_img}" alt="">
+            </div>
+            <div>
+                <a href="#">${details_name}</a>
+                <p>${server}  |  角色名： ${game_name}</p>
+            </div>
+            <div>
+                ${game_starting}小时
+            </div>
+            <div>
+                <span>${hour}</span>元/小时
+            </div>
+        `
+        /*主体内容 */
+        $(".message").html(html)
+        /*押金 */
+        $("#pledge").html(`￥${hire}`)
+        /*默认起租时间*/
+        var $count=$(".count");
+        $count.val(game_starting);
+        /*加减租号时长*//*订单金额 *//*订单总价 */
+        var $add=$("#add");/*加减租号时长*/
+        var $stt=$("#stt");
+        var $money=eval($count.val()*hour);/*订单金额 */
+        $(".money").html("￥"+$money);
+        var $total=$("#total");/*订单总价 */
+        $total.html("￥"+($money+hire))
+        $add.click(function(){
+            var $val=parseInt($count.val())+1;
+            $count.val($val)
+            $money=eval($count.val()*hour);
+            $(".money").html("￥"+$money.toFixed(2));//订单金额
+            $total.html("￥"+($money+hire).toFixed(2))/*订单总价 */
+        })
+        $stt.click(function(){
+            var $val=parseInt($count.val())-1;
+            if($val!=0) $count.val($val)
+            $money=eval($count.val()*hour);
+            $(".money").html("￥"+$money.toFixed(2));//订单金额
+            $total.html("￥"+($money+hire).toFixed(2))/*订单总价 */
+        })
+        
+        /*下单 */
+        var $hint=$(".hint");
+        var $PayPwd=$(".PayPwd");
+        //出现输入密码界面
+        $(".pay>button").click(function(){
+            $PayPwd.show()
+        })
+        // 点击确认下单
+        $(".qr").click(function(){
+            var uname=$(".top-center>ul>li>a.uname").html()
+            $.ajax({
+                url:"http://localhost:1997/user/data",
+                type:"post",
+                data:{uname},
+                dataType:"json",
+                success:function(res){
+                    var {
+                        balance
+                    }=res[0]
+                    /*判定余额是否充足 */
+                    if(balance>$total.html().substr(1)){
+                        $PayPwd.hide()
+                        $hint.show()
+                    }else{
+                        $PayPwd.hide()
+                        alert("余额不足，请充值")
+                    }
+                }
+            })
+            
+        })
+        
+        //点击取消 关闭窗口
+        $(".qx").click(function(){
+            $PayPwd.hide()
+        })
+
+        //温馨提示框确认按钮
+        $(".hint>div>button").click(function(){
+            $hint.hide()
+            // $.ajax({
+
+            // })
+        })
+        }
+        
+    })
+})
+
+
+

@@ -1,9 +1,11 @@
 /*底部footer*/
 .footer-top-bg{
-	background:#dadada;
+	background:hsl(0, 0%, 85%);
+	min-width:1230px;
 }
 .footer-bottom-bg{
 	background:#000;
+	min-width:1230px;
 }
 .footer-top,.footer-bottom{
 	width:1200px;

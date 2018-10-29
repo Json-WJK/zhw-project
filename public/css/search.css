@@ -327,7 +327,7 @@ section>.account-list-ac>.search-as>a{
 .paging>a{
     display: inline-block;
     min-width:20px;
-    border:1px solid #f0f0f0;
+    border:1px solid rgb(220, 223, 220);
     text-align:center;
     padding:1px 3px;
     margin:0 3px;

@@ -13,7 +13,7 @@
 	margin-left:290px;
 }
 .top-gdl{
-	z-index:2;
+	z-index:888;
 	width:100%;
 	position:fixed;
 	height:38px;
@@ -136,7 +136,7 @@ a{
 	left:-2px;
 	width:187px;
 	background:#fff;
-	z-index:1;
+	z-index:777;
 }
 .top-content1 div a{
 	display:inline-block;
@@ -169,7 +169,7 @@ a{
 	left:-2px;
 	width:135px;
 	background:#fff;
-	z-index:1;
+	z-index:2;
 }
 .top-content2 a{
 	display:inline-block;
@@ -188,7 +188,7 @@ a{
 .logo-bg{
 	height:150px;
 	background:#fff;
-	width:100%;
+	min-width:1230px;
 }
 .logo{
 	float:left;
@@ -219,6 +219,43 @@ header div>div>a>.logo{
 	top: 45px;
 	left:675px;
 }
+/*查询推荐*/
+.suggest{
+	position:absolute;
+	top:87px;
+	right:148px;
+	background:#fff;
+	width:358px;
+	opacity:.8;
+	border:1px solid #FF594B;
+	z-index: 777;
+}
+.suggest>li{
+	width:94.5%;
+	height:50px;
+	line-height:50px;
+	padding:0 10px;
+}
+.suggest>li:hover{
+	background:#e3e3e3;
+}
+.suggest>li>a>span:nth-child(1){
+	float: left;
+	width:200px;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis
+}
+.suggest>li>a>span:nth-child(2){
+	font-size:12px;
+	width:120px;
+	float:right;
+	text-align:left;
+}
+.suggest>li>a>span:nth-child(2)>b{
+	color:#e6292c;
+}
+
 header .logo{
 	line-height:100px;
 }
@@ -265,7 +302,8 @@ header .sousuo:focus{
 /*红色横条分类导航*/
 header>div:nth-child(3){
     background:#e6292c;
-    margin:0 0 20px 0;
+	margin:0 0 20px 0;
+	min-width:1230px;
 }
 header>div:nth-child(3)>ul{
     width:1100px;
@@ -274,12 +312,20 @@ header>div:nth-child(3)>ul{
 }
 header>div:nth-child(3)>ul>li{
     float:left;
-    line-height:40px;
-    margin:0 30px;
-    font-size:15px;
+	line-height:40px;
+	height:40px;
+	font-size:15px;
+	width:105px;
+	text-align:center;
+}
+header>div:nth-child(3)>ul>li:hover{
+	background:#d4171b;
 }
 header>div:nth-child(3)>ul>li>a{
-    color:#fff;
+	color:#fff;
+	display:inline-block;
+	width:100%;
+	height:100%;
 }
 header>div:nth-child(3)>ul>li:first-child{
     margin-left:0;
@@ -287,6 +333,9 @@ header>div:nth-child(3)>ul>li:first-child{
 header>div:nth-child(3)>ul>li:last-child{
     float:right;
     margin:0;
+}
+header>div:nth-child(3)>ul>li:last-child:hover{
+    background:#e6292c;
 }
 header>div:nth-child(3)>ul>li:last-child img{
     vertical-align:middle;

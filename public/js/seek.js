@@ -1,4 +1,4 @@
-$(function(){     //判断是直接访问还是搜索访问
+$(function(){     
       // if(location.search.indexOf("kwords=")!=-1){
     var kwords=decodeURI(location.search.split("=")[1]);
     var pno=0;
@@ -76,20 +76,21 @@ $(function(){     //判断是直接访问还是搜索访问
                 
             var $pnone=2;
             var $pnone=$pnone+parseInt(pno);
+            // 当前页码样式
             $paging.children("a").eq($pnone).css({"background":"#ee3a3d","color":"#fff"});
-            if(pno==0){
+            if(pno==0){//首页与上一页
                 $paging.children().eq(1).css("visibility","hidden");
                 $paging.children().eq(0).css("visibility","hidden");
               }else{
                 $paging.children().eq(1).css({"visibility":"visible","background":"#f1f2f3","color":"#555"});
                 $paging.children().eq(0).css({"visibility":"visible","background":"#f1f2f3","color":"#555"});
               }
-              if(pno==pageCount-1){
+              if(pno==pageCount-1){//
                 $paging.children(".nextpage").css("visibility","hidden");
-                $paging.children(".lastpage").css("visibility","hidden");
+                // $paging.children(".lastpage").css("visibility","hidden");
               }else{
                 $paging.children(".nextpage").css({"visibility":"visible","background":"#f1f2f3","color":"#555"});
-                $paging.children(".lastpage").css({"visibility":"visible","background":"#f1f2f3","color":"#555"});
+                // $paging.children(".lastpage").css({"visibility":"visible","background":"#f1f2f3","color":"#555"});
               }
             
             }else if(res.result==0){//如果没有传搜索的值则默认显示这些

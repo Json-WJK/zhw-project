@@ -26,13 +26,59 @@ $(function(){
         $input.focus(function(){
             $input.val("");
         });
-
         /*带当前url前往登录页面*/
         $(".top-dl").click(function(){
             location.href="login.html?back="+location.href;
           })
-          
-        
+
+        /*搜索提示 */
+        $(".suggest").hide();
+        $(".sousuo").keyup(function(){
+            // 如果输入了搜索内容
+            if(!$(".sousuo").val()==""){
+                var kwords=$(".sousuo").val();
+                var pno=0;
+                console.log($(".sousuo").val())
+                $(".suggest").show();
+                $.ajax({
+                    url:"http://localhost:1997/search/seek",
+                    data:{kwords,pno},
+                    dataType:"json",
+                    success:function(res){
+                        var html="";
+                        console.log(res)
+                        if(res.result==undefined){
+                            console.log(res.result)
+                            var {
+                                products,//账号查询结果列表
+                            }=res;
+                            for(var i=0;i<6;i++){
+                                html += `
+                                <li>
+                                    <a href="account-detail.html?game_id=${products[i].game_id}"><span>${products[i].game_describe}</span><span>租金：<b>${products[i].game_prices}</b>元/小时</span></a>
+                                </li>`
+                            }
+                        }
+                        // 未能查询出结果
+                        if(res.result==0){
+                            html += `
+                                <li>
+                                    抱歉，暂无该账号信息！
+                                </li>`
+                        }
+                        $(".suggest").html(html);
+                        
+                    }
+                })
+            }
+            if($(".sousuo").val() == ""){
+                $(".suggest").hide();
+            }
+        })
+        // 失去焦点
+        $(".sousuo").blur(function(){
+            $(".suggest").hide();
+        })
         }
         
 
@@ -48,11 +94,14 @@ $(function(){
         var $uname=$(".top-center>ul>li>a.uname")
         
         if(res.ok==0){
-        $(".top-center>ul:last-child").hide().prev().show();
+            $(".top-center>ul:last-child").hide().prev().show();
         }else{
-        $uname.html(res.uname);
-        $(".top-center>ul:last-child").show().prev().hide();
+            $uname.html(res.uname);
+            $(".top-center>ul:last-child").show().prev().hide();
+            /*查看当前账号信息 */
+            $(".uname").prop("href","user.html?uname="+res.uname)
         }
+        /*退出登录 */
         var out=$(".top-center>ul>li>a.outlg")
         var $hint=out.prev("div.hidden");
         out.click(function(){
@@ -70,6 +119,6 @@ $(function(){
         
     }
     })
-    
 
+    
 })

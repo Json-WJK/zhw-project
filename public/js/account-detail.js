@@ -72,7 +72,7 @@ $(function(){
                 success:function(res){
                     /*立即租号 */
                 $("input[type=button]").click(function(){
-                    if(res.ok==1) location.href="order.html";
+                    if(res.ok==1) location.href=`order.html?game_id=${game_id}`;
                     else{location.href="verify.html"+location.search};
                 })
                 }

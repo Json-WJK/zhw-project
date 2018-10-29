@@ -183,4 +183,155 @@ section{
     border:none;
     margin-left:50px;
     color:#fff;
+    cursor: pointer;
+}
+
+/*支付密码*/
+.PayPwd{
+   width:1903px;
+   height:1229px;
+   background:rgba(0,0,0,0.3);
+   z-index: 999;
+   position:fixed;
+   top:0;
+   left:0;
+   text-align:center;
+   display:none;
+}
+.PayPwd>div{
+    width:300px;
+    height:185px;
+    background:#fff;
+    position:fixed;
+    bottom:380px;
+    left:821px;
+}
+.PayPwd>div>input{
+    width:247px;
+    height:35px;
+    margin:15px 0;
+    border: 1px solid #e6e6e6;
+    box-shadow:1px 1px 10px rgba(0,0,0,.1) inset;
+}
+.PayPwd>div>p{
+    width:100%;
+    height:50px;
+    line-height:50px;
+    font-size:14px;
+    padding:0 25px;
+    box-sizing:border-box;
+}
+.PayPwd>div>p:nth-child(1){
+    background:#F8F8F8;
+    border-radius: 2px 2px 0 0;
+    border-bottom: 1px solid #eee;
+    text-align:left;
+    color:#000;
+}
+.PayPwd>div>p:nth-child(3){
+    text-align:right;
+}
+.PayPwd>div button{
+    width:55px;
+    height:30px;
+    border:none;
+    font-size:12px;
+    cursor: pointer;
+}
+.PayPwd>div button:nth-child(1){
+    background:#1E9FFF;
+    border:1px solid #1E9FFF;
+    color:#fff;
+    margin-right:15px;
+    cursor: pointer;
+}
+.PayPwd>div button:nth-child(2){
+    background:#fff;
+    border:1px solid #dedede;
+    cursor: pointer;
+}
+
+/*租号完成 温馨提示*/
+.hint{
+    width:1903px;
+    height:1229px;
+    background:rgba(0,0,0,0.3);
+    z-index: 999;
+    position:fixed;
+    top:0;
+    left:0;
+    text-align:center;
+    display: none;
+}
+.hint>div{
+    width:816px;
+    height:440px;
+    background:#fff;
+    position:fixed;
+    top:165px;
+    left:550px;
+    box-sizing:border-box;
+    padding:5px 30px;
+}
+.hint>div>p:nth-child(1){
+    font-size:38px;
+    font-weight:bold;
+    color:#000;
+    margin-top:30px;
+}
+.hint>div>p:nth-child(2){
+    height:35px;
+    line-height:35px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+.hint-ns{
+    display: flex;
+    justify-content:space-around;
+    background:#fafafa;
+}
+.hint>div>p:nth-child(4){
+    height:50px;
+    line-height:50px;
+    font-size:12px;
+}
+.hint-center{
+    height:120px;
+    line-height:30px;
+}
+.hint-center>p:nth-child(1){
+    background:#f4f4f4;
+    width:36px;
+    height:36px;
+    line-height:36px;
+    font-size:16px;
+    color:#5f5f5f;
+    border-radius:50%;
+    margin:10px auto;
+}
+.hint-center>p:nth-child(2){
+    font-size: 14px;
+    color: #535353;
+    line-height:25px;
+}
+.hint-center>p:nth-child(3){
+    font-size: 12px;
+    color: #b0b0b0;
+    line-height:25px;
+}
+.hint button{
+    background:#f7472e;
+    color:#fff;
+    border:none;
+    width:160px;
+    height:40px;
+    border-radius: 20px;
+    font-size:17px;
+    margin-top:50px;
+    cursor: pointer;
+}
+.hint-shu{
+    border-left:1px solid #f1f1f1;
+    height:60px;
+    margin-top:25px;
 }
