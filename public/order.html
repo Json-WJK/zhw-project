@@ -20,7 +20,7 @@
                     <span>单价</span>
                 </div>
                 <div class="message">
-                    <div>
+                    <!-- <div>
                         <img src="zuhao/58eb65cc7987b.jpg" alt="">
                     </div>
                     <div>
@@ -32,7 +32,7 @@
                     </div>
                     <div>
                         <span>1.10</span>元/小时
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="select">
@@ -49,9 +49,9 @@
                 </div>
                 <div>
                     <span>租赁时间：</span>
-                    <b>-</b>
-                    <input type="text" class="count" value="2">
-                    <b>+</b>
+                    <b id="stt">-</b>
+                    <input type="text" class="count">
+                    <b id="add">+</b>
                     <span>小时</span>
                     <span class="borders">可租时间段 0：00-24：00</span>
                     <span class="borders">已预约时间： 2018-10-22 19:15:03~2018-10-23 19:20:03</span>
@@ -69,11 +69,11 @@
                 <div>
                     <p>
                         <span>订单金额：</span>
-                        <span>￥3.20</span>
+                        <span class="money"></span>
                     </p>
                     <p>
                         <span>订单押金：</span>
-                        <span>￥0.00</span>
+                        <span id="pledge"></span>
                     </p>
                     
                 </div>
@@ -83,9 +83,49 @@
                 <div>我已阅读并同意 《租号玩服务协议》</div>
                 <div>
                     实付总额（含押金）：
-                    <span>￥3.20元</span>
+                    <span id="total"></span>
                 </div>
                 <button>去付款</button>
+            </div>
+        </div>
+        <div class="hint">
+            <div>
+                <p>重要提示</p>
+                <p>恭喜您，下单成功。请按照以下顺序检查</p>
+                <div class="hint-ns">
+                    <div class="hint-center">
+                        <p>01</p>
+                        <p>客户端上号器</p>
+                        <p>客户端上号器是否可以正常上号</p>
+                    </div>
+                    <div class="hint-shu"></div>
+                    <div class="hint-center">
+                        <p>02</p>
+                        <p>账号密码</p>
+                        <p>账号密码是否正确</p>
+                    </div>
+                    <div class="hint-shu"></div>
+                    <div class="hint-center">
+                        <p>03</p>
+                        <p>游戏</p>
+                        <p>是否可以正常进行游戏</p>
+                    </div>
+                    <div class="hint-shu"></div>
+                    <div class="hint-center">
+                        <p>04</p>
+                        <p>描述</p>
+                        <p>描述与实际是否符合</p>
+                    </div>
+                </div>
+                <p>温馨提示：如果发现问题请在<b>15</b>分钟内及时投诉，<b>15</b>分钟后默认已经检查完毕没有问题，此时投诉将会扣除对应租金</p>
+                <button>确 定</button>
+            </div>
+        </div>
+        <div class="PayPwd">
+            <div>
+                <p>请输入支付密码</p>
+                <input type="password">
+                <p><button class="qr">确定</button><button class="qx">取消</button><p>
             </div>
         </div>
     </section>
@@ -96,4 +136,5 @@
 <script src="js/header.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/field-fixed.js"></script>
+<script src="js/order.js"></script>
 </html>
