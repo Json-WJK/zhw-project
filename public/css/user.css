@@ -10,6 +10,7 @@ section{
     width:155px;
     font-size:14px;
     margin-right:5px;
+    margin-bottom:10px;
 }
 .l-heng{
     background:#eee;
@@ -335,6 +336,4 @@ section{
 .zh-list>span:nth-child(5){
     margin:45px 0 0 10px;
 }
-#rtopup{
-    cursor: pointer;
-}
+

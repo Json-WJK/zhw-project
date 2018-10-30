@@ -88,7 +88,7 @@ $(function(){
                 data:{uname,up,date},
                 dataType:"json",
                 success:function(res){
-                    console.log(res)
+                    location.reload(true)
                 }
             })
         }

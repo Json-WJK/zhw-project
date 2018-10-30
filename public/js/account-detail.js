@@ -16,6 +16,7 @@ $(function(){
         data:{game_id,date},
         dataType:"json",
         success:function(res){
+            console.log(res)
             var html="";
             for(var div of res){
                 var {
@@ -61,6 +62,13 @@ $(function(){
             }
             $(".particulars-top").html(html);  
 
+            /*页头 */
+            html=`
+            <a href="index.html">租号玩首页</a>  > <a href="search.html">租号玩租号</a>  >  
+                <a href="">穿越火线:枪战王者</a>  >  <a href="">${server}</a>  > <a href="">${details_name}</a> 
+            `
+            var $top=$(".top-describe")
+            $top.html(html)
             /*选择租用方式 */
             var $spans=$("#affirm").children().children(".affirms").removeClass("affirm");
             $spans.on("click",function(){

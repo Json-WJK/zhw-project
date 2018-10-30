@@ -13,6 +13,12 @@ section{
     padding:20px 5px 20px 20px;
     background:#fff;
 }
+/*页头*/
+.top-describe{
+    color:#666;
+    margin-bottom:15px;
+    font-size:13px;
+}
 /*游戏账号大中小图片*/
 /*中图*/
 #AllKindsImg{
