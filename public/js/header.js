@@ -92,7 +92,6 @@ $(function(){
         dataType:"json",
         success:function(res){
         var $uname=$(".top-center>ul>li>a.uname")
-        
         if(res.ok==0){
             $(".top-center>ul:last-child").hide().prev().show();
         }else{

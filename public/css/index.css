@@ -327,7 +327,7 @@ header .sousuo:focus{
 	text-align:center;
 	margin:30px auto;
 }
-.top-right-top>a{
+.top-right-top>div>a{
 	display:inline-block;
 	width:113px;
 	height:37px;
@@ -340,20 +340,46 @@ header .sousuo:focus{
 	padding-right:42px;
 	box-sizing:border-box;
 }
-.top-right-top>a:nth-child(1){
+.top-right-top>div>a:nth-child(1){
 	background:url(../zuhao/LoginIn.png) no-repeat -20px 9px #78c443;
 }
-.top-right-top>a:nth-child(2){
+.top-right-top>div>a:nth-child(2){
 	background:url(../zuhao/reg.png) no-repeat -20px 9px #019cff;
 }
-.top-right-top>a:nth-child(1):hover{
+.top-right-top>div>a:nth-child(1):hover{
 	background:url(../zuhao/LoginIn.png) no-repeat 30px 9px #78c443;
 	padding-right:30px;
 }
-.top-right-top>a:nth-child(2):hover{
+.top-right-top>div>a:nth-child(2):hover{
 	background:url(../zuhao/reg.png) no-repeat 30px 9px #019cff;
 	padding-right:30px;
 }
+/*登录完成后的显示状态*/
+.users{
+	height:50px;
+	padding: 0 40px;
+	box-sizing:border-box;
+	font-size:12px;
+	margin:-20px 0 20px 0;
+}
+.users>img{
+	float: left;
+	width:70px;
+	height:70px;
+}
+.users>div{
+	float: right;
+	text-align:center;
+	line-height:40px;
+}
+.users>div>p:nth-child(1){
+	color:#f96557;
+	cursor: pointer;
+}
+.users>div>p:nth-child(2){
+	color:#666;
+}
+
 .top-right-center{
 	color:#666;
 	font-size:13px;
@@ -365,7 +391,7 @@ header .sousuo:focus{
 	display:inline-block;
 	width:120px;
 	height:35px;
-	line-height:35px;
+	line-height:30px;
 	border-bottom:1px solid #e9e9e9;
 }
 .rightcolor{

@@ -1,5 +1,6 @@
 $(function(){
-    var uname=location.search.split("=")[1];
+    if(location.search.split("=")[1]==undefined) location.href="index.html"
+    var uname=decodeURI(location.search.split("=")[1]);
     /*首先判断用户是否登录 */
     $.ajax({
         url:"http://localhost:1997/user/islogin",
@@ -17,6 +18,7 @@ $(function(){
         data:{uname},
         dataType:"json",
         success:function(res){
+            console.log(res)
             var {
                 avatar,
                 balance,
@@ -47,6 +49,7 @@ $(function(){
                     </div>
             `
         $("#balance").html(html)
+            if(nickname==null) nickname="给自己起个名字吧！"
             var html=`
             <p>${nickname} <img src="zuhao/user_dengji.png" alt=""> </p>
                     <p>账号安全：<span class="r-bar"><b></b></span>安全 </p>
