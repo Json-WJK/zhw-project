@@ -12,6 +12,7 @@ section{
     box-sizing:border-box;
     padding:20px 5px 20px 20px;
     background:#fff;
+    position: relative;
 }
 /*页头*/
 .top-describe{
@@ -202,6 +203,7 @@ border-top:1px dashed #9999;
 }
 /*押金及提示*/
 .particulars-top>p:nth-child(5){
+    width:50%;
     font-weight:bold;
     font-size:13px;
     margin-top:10px;
@@ -211,6 +213,7 @@ border-top:1px dashed #9999;
     font-size:15px;
 }
 .particulars-top>p:nth-child(5)>span:nth-child(2){
+    width:50%;
     display: inline-block;
     text-align:center;
     width:100px;
@@ -220,8 +223,29 @@ border-top:1px dashed #9999;
     font-size:12px;
 }
 .particulars-top>p:nth-child(6){
+    width:50%;
     color:#f00;
     font-size:12px;
+}
+/*倒计时*/
+.CountDown{
+    position: absolute;
+    bottom:100px;
+    right:50px;
+}
+.CountDown>p{
+    text-align:right;
+    color:#f00;
+    font-size:15px;
+}
+.CountDown>p:nth-child(1){
+    font-weight: bold;
+}
+.CountDown>p:nth-child(2){
+    color:#949694;
+}
+.CountDown>p>span{
+    color:#f00;
 }
 /*提交按钮  立即租用*/
 .particulars-top>input{

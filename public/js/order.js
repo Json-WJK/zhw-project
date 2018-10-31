@@ -98,15 +98,24 @@ $(function(){
         
         function win(){//租号成功
             var myDate = new Date();
+            var year=myDate.getFullYear();//年
+            var month=myDate.getMonth()+1;//月
+            var date=myDate.getDate();//日
+            var hour=myDate.getHours();//时
+            var minute=myDate.getMinutes();//分
+            var second=myDate.getSeconds();//秒
             var m=myDate.getMinutes(); 
             var h=myDate.getHours(); 
-            var date=h+":"+m
+            var DateTime=year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+            console.log(DateTime)
+            var dates=h+":"+m
             var uname=$(".uname").html();
+            var duration=$(".count").val()
             /*支付成功后，将该账号添加至个人信息租过的账号列表中 */
             $.ajax({
-                url:"http://localhost:1997/order/add",
+                url:"http://localhost:1997/order//add",
                 type:"post",
-                data:{game_id,uname,date},
+                data:{game_id,uname,DateTime,duration,dates},
                 dataType:"json",
                 success:function(res){
                 }

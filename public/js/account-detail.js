@@ -16,7 +16,6 @@ $(function(){
         data:{game_id,date},
         dataType:"json",
         success:function(res){
-            console.log(res)
             var html="";
             for(var div of res){
                 var {
@@ -70,32 +69,15 @@ $(function(){
             var $top=$(".top-describe")
             $top.html(html)
             /*选择租用方式 */
-            var $spans=$("#affirm").children().children(".affirms").removeClass("affirm");
+            var $spans=$("#affirm").children().children(".affirms");
             $spans.on("click",function(){
                 var $span=$(this);
                 $spans.removeClass("affirm");
                 $span.addClass("affirm");
             })
-            
-            $.ajax({
-                url:"http://localhost:1997/user/islogin",
-                type:"get",
-                dataType:"json",
-                success:function(res){
-                    /*立即租号 */
-                $("input[type=button]").click(function(){
-                    var url1=location.pathname.slice(1);
-                    var url2=location.search.slice(1)
-                    if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
-                    if(res.ok==1) location.href=`order.html?game_id=${game_id}`;
-                })
-                }
-            })
-           
         }
     })
     //推荐账号列表
-    
     $.ajax({
         url:"http://localhost:1997/search/recommendlist",
         type:"get",
@@ -157,43 +139,120 @@ $(function(){
                 element.html(html);
    
             })
+        /*立即租号 */
+        $.ajax({
+            url:"http://localhost:1997/user/islogin",
+            type:"get",
+            dataType:"json",
+            success:function(res){
+                /*立即租号 */
+            $("input[type=button]").click(function a(){
+                var url1=location.pathname.slice(1);
+                var url2=location.search.slice(1)
+                if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
+                if(res.ok==1) location.href=`order.html?game_id=${game_id}`;
+            })
+            }
+        })
+        /*账号当前租用状态 */
+        $.ajax({
+            url:"http://localhost:1997/detail/lease",
+            type:"get",
+            data:{game_id},
+            dataType:"json",//ajax可自动将json转为obj
+            success:function(res){
+                if(res.length==0) return
+                $("input[type=button]").val("账号出租中").css("background","#949694");
+                $("input[type=button]").attr('disabled','disabled')
+                function timeFn(d1,duration) {//di作为一个变量传进来
+                    var dateBegin = new Date(d1);
+                    var dateEnd = new Date();
+                    var dateDiff = (dateBegin.getTime()+(8+duration)*60*60*1000)-dateEnd.getTime()  ;//时间差的毫秒数
+                    if(dateDiff<=0){
+                        $.ajax({
+                            url:"http://localhost:1997/detail/remove",
+                            type:"get",
+                            data:{game_id},
+                            dataType:"json",
+                            success:function(){
+                                return
+                            }
+                        })
+                        return
+                    }
+                    var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
+                    var leave1=dateDiff%(24*3600*1000)    //计算天数后剩余的毫秒数
+                    var hours=Math.floor(leave1/(3600*1000))//计算出小时数
+                    //计算相差分钟数
+                    var leave2=leave1%(3600*1000)    //计算小时数后剩余的毫秒数
+                    var minutes=Math.floor(leave2/(60*1000))//计算相差分钟数
+                    //计算相差秒数
+                    var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+                    var seconds=Math.round(leave3/1000)
+                     if(dayDiff<10) dayDiff="0"+dayDiff
+                     if(hours<10) hours="0"+hours
+                     if(minutes<10) minutes="0"+minutes
+                     if(seconds<10) seconds="0"+seconds
+                     var $CountDown=$(".CountDown")
+                     $CountDown.html(`
+                        <p>租赁倒计时</p>
+                        <p>
+                            <span>${dayDiff}</span>天
+                            <span>${hours}</span>时
+                            <span>${minutes}</span>分
+                            <span>${seconds}</span>秒
+                        </p>
+                     `)
+                }
+                var time=res[0].starting_date.replace(/T/,' ').replace('.000Z','');
+                timeFn(time,res[0].duration);
+                        setInterval(function(){
+                        timeFn(time,res[0].duration);
+                },1000)
+            }
+            })
+                
+   
 
+
+
+            /*左侧图片切换与放大镜 */
+            var $min=$("#min-img");
+            var $med=$("#medium-img").children();
+            var $max=$("#max-img");
             
-})
-
-    var $min=$("#min-img");
-    var $med=$("#medium-img").children();
-    var $max=$("#max-img");
-    
-    $min.on("mouseenter","img",function(e){
-        var img=e.target;
-        var imgx=img.dataset.imgs;
-        $med.attr("src",imgx);
-        // $max.css(backgroundImage=`url(${imgx})`;
-        $max.css("background-image",`url(${imgx})`);
-    })
-
-
-var $mask=$(".mask"),//透明玻璃板
-    $smask=$(".smask");//半透明遮罩
-var MSIZE=160,//mask的大小
-    MAX=410-MSIZE;//top和left的最大值
-$mask
-.hover(
-    function(){
-    $smask.toggleClass("d-none");
-    $max.toggleClass("d-none");
-    }
-)
-.mousemove(function(e){
-    var left=e.offsetX-MSIZE/2;
-    var top=e.offsetY-MSIZE/2;
-    if(left<0) left=0; 
-    else if(left>MAX) left=MAX;
-    if(top<0) top=0;
-    else if(top>MAX) top=MAX;
-    $smask.css({left,top});
-    $max.css("background-position",`-${40/25*left}px -${40/25*top}px`)
+            $min.on("mouseenter","img",function(e){
+                var img=e.target;
+                var imgx=img.dataset.imgs;
+                $med.attr("src",imgx);
+                // $max.css(backgroundImage=`url(${imgx})`;
+                $max.css("background-image",`url(${imgx})`);
+            })
+        
+        
+        var $mask=$(".mask"),//透明玻璃板
+            $smask=$(".smask");//半透明遮罩
+        var MSIZE=160,//mask的大小
+            MAX=410-MSIZE;//top和left的最大值
+        $mask
+        .hover(
+            function(){
+            $smask.toggleClass("d-none");
+            $max.toggleClass("d-none");
+            }
+        )
+        .mousemove(function(e){
+            var left=e.offsetX-MSIZE/2;
+            var top=e.offsetY-MSIZE/2;
+            if(left<0) left=0; 
+            else if(left>MAX) left=MAX;
+            if(top<0) top=0;
+            else if(top>MAX) top=MAX;
+            $smask.css({left,top});
+            $max.css("background-position",`-${40/25*left}px -${40/25*top}px`)
+        })
+        
+        
 })
 
 
