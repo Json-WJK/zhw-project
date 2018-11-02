@@ -13,3 +13,14 @@ INSERT INTO zhw_lease VALUES
 (1,1,1,"2018-10-31 23:50:00",1),
 (2,1,2,"2018-10-31 23:50:00",2);
 
+/*用户搜索*/
+DROP TABLE IF EXISTS zhw_collect;
+CREATE TABLE zhw_collect(
+	collect_id INT PRIMARY KEY AUTO_INCREMENT,
+	uid INT,
+	game_id INT
+);
+INSERT INTO zhw_collect VALUES
+(1,1,1),
+(2,1,2);
+
