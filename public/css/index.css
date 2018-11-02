@@ -577,16 +577,17 @@ div.lunbo1>button.next{
 .change{
 	opacity: 1 !important;
 }
+div.lunbo1>button:hover{
+	color:#fff;
+	opacity: 1;
+}
 div.lunbo1:hover button.prev{
 	left:0;
 }
 div.lunbo1:hover button.next{
 	right:0;
 }
-div.lunbo1>button:hover{
-	color:#fff;
-	opacity: 1;
-}
+
 /*轮播图2*/
 @keyframes lb2{
 	0%,5%{

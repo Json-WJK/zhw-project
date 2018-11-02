@@ -16,9 +16,11 @@ $(function(){
         data:{game_id,date},
         dataType:"json",
         success:function(res){
+            console.log(res)
             var html="";
             for(var div of res){
                 var {
+                    game_names,
                     details_id,
                     game_id,
                     game_family_id,
@@ -57,14 +59,14 @@ $(function(){
                     <span><a href="#">租号须知</a></span>
                 </p>
                 <p>温馨提示： 不得使用或浏览外挂等第三方软件，违反将会扣除押金及租金！</p>
-                <input type="button" value="立 即 租 用 / 预 约">`;
+                <input type="button" value="立 即 租 用 / 预 约" class="submits">`;
             }
             $(".particulars-top").html(html);  
 
             /*页头 */
             html=`
             <a href="index.html">租号玩首页</a>  > <a href="search.html">租号玩租号</a>  >  
-                <a href="">穿越火线:枪战王者</a>  >  <a href="">${server}</a>  > <a href="">${details_name}</a> 
+                <a href="">${game_names}</a>  >  <a href="">${server}</a>  > <a href="">${details_name}</a> 
             `
             var $top=$(".top-describe")
             $top.html(html)
@@ -146,7 +148,7 @@ $(function(){
             dataType:"json",
             success:function(res){
                 /*立即租号 */
-            $("input[type=button]").click(function a(){
+            $("input[type=button].submits").click(function a(){
                 var url1=location.pathname.slice(1);
                 var url2=location.search.slice(1)
                 if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
@@ -178,8 +180,8 @@ $(function(){
                         })
                         return
                     }else{
-                        $("input[type=button]").val("账号出租中").css("background","#949694");
-                        $("input[type=button]").attr('disabled','disabled')
+                        $("input[type=button].submits").val("账号出租中").css("background","#949694");
+                        $("input[type=button].submits").attr('disabled','disabled')
                     }
                     var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
                     var leave1=dateDiff%(24*3600*1000)    //计算天数后剩余的毫秒数

@@ -55,6 +55,7 @@ $(function(){
                     </div>
                 </div>`;
       }
+      /*可选页码与返回页数一致 */
       for(i=1;i<=pageCount;i++){
         a+=`<a href="#" class="count">${i}</a>`;
       }
@@ -113,8 +114,9 @@ $(function(){
           var {	
             classify_img,
             game_family_id,
-            game_name}=div;
-          html+=`<div><a href="search.html?game_family_id=${game_family_id}"><img src="${classify_img}" alt=""></a></div>`;
+            game_names  
+          }=div;
+          html+=`<div><a href="seek.html?kwords=${game_names}"><img src="${classify_img}" alt=""></a></div>`;
         }
         var element=document.getElementById("search-imgs");
         element.innerHTML=html;

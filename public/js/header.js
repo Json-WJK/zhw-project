@@ -7,6 +7,14 @@ $(function(){
       type:"get",
       success:function(res){
         $("header").replaceWith(res)
+        /*充值跳转 */
+        var $uname=$(".top-center>ul>li>a.uname")
+        var $up=$(".uptops")
+        $up.click(function(){
+            location.href="http://localhost:1997/topup.html?uname="+$uname.html();
+        })
+
+        /*搜索跳转*/
         var $input=$("input.sousuo")
         var $button=$("input[type='button']")
         $button.click(function(){
@@ -38,7 +46,6 @@ $(function(){
             if(!$(".sousuo").val()==""){
                 var kwords=$(".sousuo").val();
                 var pno=0;
-                console.log($(".sousuo").val())
                 $(".suggest").show();
                 $.ajax({
                     url:"http://localhost:1997/search/seek",
@@ -46,9 +53,7 @@ $(function(){
                     dataType:"json",
                     success:function(res){
                         var html="";
-                        console.log(res)
                         if(res.result==undefined){
-                            console.log(res.result)
                             var {
                                 products,//账号查询结果列表
                             }=res;
@@ -58,14 +63,37 @@ $(function(){
                                     <a href="account-detail.html?game_id=${products[i].game_id}"><span>${products[i].game_describe}</span><span>租金：<b>${products[i].game_prices}</b>元/小时</span></a>
                                 </li>`
                             }
+                        }else{
+                            $.ajax({
+                                url:"http://localhost:1997/search/seeks",
+                                data:{kwords,pno},
+                                dataType:"json",
+                                success:function(res){
+                                    if(res.result==undefined){
+                                    var {
+                                        products,//账号查询结果列表
+                                    }=res;
+                                    html="";
+                                    for(var i=0;i<6;i++){
+                                        html += `
+                                        <li>
+                                            <a href="account-detail.html?game_id=${products[i].game_id}"><span>${products[i].game_describe}</span><span>租金：<b>${products[i].game_prices}</b>元/小时</span></a>
+                                        </li>`
+                                    }
+                                    $(".suggest").html(html);
+                                    }// 未能查询出结果
+                                    else if(res.result==0){
+                                            html=""
+                                            html += `
+                                            <li>
+                                                抱歉，暂无该账号信息！
+                                            </li>`
+                                            $(".suggest").html(html);
+                                         }
+                                }
+                            })
                         }
-                        // 未能查询出结果
-                        if(res.result==0){
-                            html += `
-                                <li>
-                                    抱歉，暂无该账号信息！
-                                </li>`
-                        }
+                        
                         $(".suggest").html(html);
                         
                     }
@@ -124,6 +152,7 @@ $(function(){
         
     }
     })
+    
 
     
 })

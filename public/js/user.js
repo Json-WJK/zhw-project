@@ -90,24 +90,46 @@ $(function(){
                 game_id
             }=div
             html+=`
-            <div class="zh-list">
-                <img src="${game_overall_img}" alt="">
-                <div>
-                    <p>订单号：107613351 货架号：1937724</p>
-                    <p>${game_describe}</p>
-                    <p>角色名：${game_name}</p>
+            <div class="be-list">
+                <div class="zh-list">
+                    <img src="${game_overall_img}" alt="">
+                    <div>
+                        <p>订单号：107613351 货架号：1937724</p>
+                        <p>${game_describe}</p>
+                        <p>角色名：${game_name}</p>
+                    </div>
+                    <div>
+                        <p>商品价格：${game_prices}元/小时</p>
+                        <p>下单时间：2小时</p>
+                        <p>押金：${game_hire.toFixed(2)}</p>
+                    </div>
+                    <span>已完成</span>
+                    <span><a href="account-detail.html?game_id=${game_id}">订单详情</a></span>
                 </div>
-                <div>
-                    <p>商品价格：${game_prices}元/小时</p>
-                    <p>下单时间：2小时</p>
-                    <p>押金：${game_hire}</p>
+                <div class="more">
+                        查看更多
                 </div>
-                <span>已完成</span>
-                <span><a href="account-detail.html?game_id=${game_id}">订单详情</a></span>
             </div>
             `
         }
             $(".r-tenant").append(html)
+            $(".r-classifys").on("click",".r-class-bj",function(){
+                $(".r-classifys").children().css("border-bottom","none")
+                $(this).css("border-bottom","1px solid red")
+
+                var $list=$(".collect-list")//最后一个
+                var $be=$(".be-list")//第一
+                var $of=$(".often-list")//中间
+                $list.css("display","none")
+                $be.css("display","none")
+                $of.css("display","none")
+                
+                if($(this).is($(".r-classifys>span").last())){
+                    $list.css("display","block")
+                }else if($(this).is($(".r-classifys>span").first())){
+                    $be.css("display","block")
+                }else $of.css("display","block")
+            })
         }
     })
 })

@@ -340,3 +340,9 @@ header>div:nth-child(3)>ul>li:last-child:hover{
 header>div:nth-child(3)>ul>li:last-child img{
     vertical-align:middle;
 }
+
+/*追加样式*/
+/*充值*/
+.uptops{
+	cursor: pointer;
+}

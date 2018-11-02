@@ -232,7 +232,7 @@ section{
 .r-tenant{
     background:#fff;
     box-sizing:border-box;
-    padding:0 40px;
+    padding:10px 40px;
 }
 .r-zx>p{
     font-size:14px;
@@ -269,9 +269,12 @@ section{
     padding-left:30px;
     margin-right:30px;
     background:url(../zuhao/psonHZ_100.png) no-repeat;
+    cursor:pointer;
+    padding-bottom:10px;
 }
 .r-class-bj:nth-child(1){
     background-position:0 -89px;
+    border-bottom:1px solid red;
 }
 .r-class-bj:nth-child(2){
     background-position:0 -129px;
@@ -279,7 +282,12 @@ section{
 .r-class-bj:nth-child(3){
     background-position:0 -169px;
 }
-/*订单列表*/
+
+/**/
+.r-classifys{
+    border-bottom:1px solid #eee;
+}
+/*我租的账号列表*/
 .zh-list{
     display:flex;
     width:850px;
@@ -337,3 +345,24 @@ section{
     margin:45px 0 0 10px;
 }
 
+/*我常租的账号列表*/
+.often-list{
+    display:none;
+}
+/*我收藏的账号列表*/
+.collect-list{
+    display:none;
+}
+.more{
+    height:25px;
+    line-height:25px;
+    width:150px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin:0 auto;
+    margin-top:10px;
+    text-align:center;
+    color:#666;
+    font-size:14px;
+    cursor: pointer;
+}
