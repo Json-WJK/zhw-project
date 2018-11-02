@@ -4,6 +4,18 @@ $(function(){
         location.search.split("=")[1]
         )
     }
+    /*防止客户点击后退回到此页面 */
+    $.ajax({
+        url:"http://localhost:1997/detail/lease",
+        type:"get",
+        data:{game_id},
+        dataType:"json",//ajax可自动将json转为obj
+        success:function(res){
+            if(res.length==0) return
+            var $button=$(".pay>button")
+            $button.attr('disabled','disabled').html("账号出租中").css("background","#949694")
+        }
+    })
     /*首先判断该用户是否登录 */
     $.ajax({
         url:"http://localhost:1997/user/islogin",

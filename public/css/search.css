@@ -4,12 +4,17 @@ body{
 header{
     background:#fff;
 }
+/*清除浮动*/
+.clear::after{
+    content:"";
+    display:block;
+    clear: both;
+}
 /*中间内容部分*/
 /*分类选择游戏*/
 
 section{
     width:1230px;
-    height:3500px;
     margin:0 auto;
 }
 
@@ -193,6 +198,7 @@ section>.account-list-ac>.search-as>a{
     float:left;
     width:997px;
     background:#fff;
+    margin-bottom:20px;
 }
 .account-list{
     display:flex;
@@ -387,10 +393,10 @@ section>.account-list-ac>.search-as>a{
     border-left:2px solid #F03D40;
     padding-left:10px;
 }
-.recommend-list{
+/* .recommend-list{
     max-height:2576px;
     overflow:hidden;
-}
+} */
 .recommend-list>div{
     margin-left:6px;
 }

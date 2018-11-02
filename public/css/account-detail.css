@@ -1,6 +1,12 @@
 body{
     background:#f1f2f3;
 }
+/*清除 浮动*/
+.clear::after{
+    content:"";
+    display:block;
+    clear: both;
+}
 /*中间部分*/
 section{
     width:1120px;
@@ -8,7 +14,6 @@ section{
 }
 /*第一部分*/
 .adiv{
-    height:560px;
     box-sizing:border-box;
     padding:20px 5px 20px 20px;
     background:#fff;
@@ -46,7 +51,7 @@ section{
     height:60px;
     margin-right:3px;
     vertical-align:middle;
-    border:1px solid #ddd;
+    border:2px solid #ddd;
 }
 /*大图*/
 #max-img{
@@ -79,27 +84,40 @@ section{
 }
 
 /*分享及收藏*/
-#AllKindsImg>div:nth-child(4){
+.share>span{
+    color:#333;
     font-size:13px;
-    color:#666;
 }
-#AllKindsImg>div:nth-child(4)>span:nth-child(1){
+.share>span:nth-child(1){
     background:url(../zuhao/icons_0_16.png) no-repeat;
     padding-left:20px;
     margin-right:30px;
 }
-#AllKindsImg>div:nth-child(4)>span{
+.share>span{
     cursor:pointer;
 }
-#AllKindsImg>div:nth-child(4)>span:nth-child(3){
+.share>span:nth-child(3){
     float:right;
     margin-right:20px;
     font-weight:bold;
 }
-#AllKindsImg>div:nth-child(4)>span:nth-child(2):hover{
+.share>span:nth-child(2):hover{
     color:#2C7AF1;
 }
+/*收藏*/
+/* .share>span{
+    color:#333;
+    font-size:13px;
+}
+.share>span:nth-child(1){
 
+}
+.share>span:nth-child(2){
+
+}
+.share>span:nth-child(3){
+
+} */
 
 
 /*右侧账号详情*/

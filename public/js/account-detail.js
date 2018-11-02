@@ -161,9 +161,7 @@ $(function(){
             data:{game_id},
             dataType:"json",//ajax可自动将json转为obj
             success:function(res){
-                if(res.length==0) return
-                $("input[type=button]").val("账号出租中").css("background","#949694");
-                $("input[type=button]").attr('disabled','disabled')
+                if(res.length==0) return 
                 function timeFn(d1,duration) {//di作为一个变量传进来
                     var dateBegin = new Date(d1);
                     var dateEnd = new Date();
@@ -179,6 +177,9 @@ $(function(){
                             }
                         })
                         return
+                    }else{
+                        $("input[type=button]").val("账号出租中").css("background","#949694");
+                        $("input[type=button]").attr('disabled','disabled')
                     }
                     var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
                     var leave1=dateDiff%(24*3600*1000)    //计算天数后剩余的毫秒数
@@ -223,6 +224,8 @@ $(function(){
             
             $min.on("mouseenter","img",function(e){
                 var img=e.target;
+                $(this).parent().children().css("border","2px solid #ddd")
+                $(this).css("border","2px solid #f60")
                 var imgx=img.dataset.imgs;
                 $med.attr("src",imgx);
                 // $max.css(backgroundImage=`url(${imgx})`;

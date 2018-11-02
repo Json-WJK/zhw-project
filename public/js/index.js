@@ -91,4 +91,36 @@ $(function(){
 		}
 	}
 /*轮播特效 */
+	var $last=$("div.lunbo1>img:last")
+	var $frist=$("div.lunbo1>img:first")
+	var $prev=$("div.lunbo1>button.prev")
+	var $next=$("div.lunbo1>button.next")
+	
+	// 自动播放
+	function set(){
+		var $lb=$("div.lunbo1>img.change")
+		$lb.next().addClass("change")
+		$lb.removeClass("change")
+		if($lb.is($last)) $frist.addClass("change")
+	};
+	var start=setInterval(function(){set()},3000);
+	// 第一张
+	$prev.click(function(){
+		var $lb=$("div.lunbo1>img.change")
+		$lb.prev().addClass("change")
+		$lb.removeClass("change")
+		if($lb.is($frist)) $last.addClass("change")
+	})
+	// 最后一张
+	$next.click(function(){
+		var $lb=$("div.lunbo1>img.change")
+		$lb.next().addClass("change")
+		$lb.removeClass("change")
+		if($lb.is($last)) $frist.addClass("change")
+	})
+	//移入移除
+	$("div.lunbo1").mouseover(function(){clearInterval(start);})
+	.mouseout(function(){
+		start=setInterval(function(){set()},3000) ;//重新启动
+	});
 })
