@@ -15,8 +15,8 @@ $(function(){
         type:"get",
         data:{game_id,date},
         dataType:"json",
+        async:false,
         success:function(res){
-            console.log(res)
             var html="";
             for(var div of res){
                 var {
@@ -141,18 +141,60 @@ $(function(){
                 element.html(html);
    
             })
-        /*立即租号 */
+        /*立即租号 *//*收藏账号 */
         $.ajax({
             url:"http://localhost:1997/user/islogin",
             type:"get",
             dataType:"json",
             success:function(res){
-                /*立即租号 */
-            $("input[type=button].submits").click(function a(){
                 var url1=location.pathname.slice(1);
                 var url2=location.search.slice(1)
+                /*立即租号 */
+            $("input[type=button].submits").click(function a(){
                 if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
                 if(res.ok==1) location.href=`order.html?game_id=${game_id}`;
+            })
+
+            /*收藏账号 */
+            
+            
+            $(".enshrine").click(function(){
+                if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
+                if(res.ok==1){
+                    var uname=$(".uname").html();
+                    $.ajax({
+                        url:"http://localhost:1997/detail/isenshrines",
+                        type:"post",
+                        data:{uname,game_id},
+                        dataType:"json",
+                        success:function(res){
+                            if(res==0){/*收藏 */
+                                $.ajax({
+                                    url:"http://localhost:1997/user/enshrines",
+                                    type:"post",
+                                    data:{uname,game_id},
+                                    dataType:"json",
+                                    success:function(res){
+                                        if(res==1){
+                                            $(".enshrine-box").css("display","block")
+                                        }
+                                    }
+                                })
+                            }
+                            if(res==1)
+                            $(".enshrine-box")
+                            .css("display","block")
+                            .children()
+                            .children()
+                            .children(".win")
+                            .html("账号已收藏")          
+                        }
+                    })
+                }
+            })
+            /*点击确认弹框消失 */
+            $(".box-qr").click(function(){
+                $(".enshrine-box").css("display","none")
             })
             }
         })
@@ -164,10 +206,14 @@ $(function(){
             dataType:"json",//ajax可自动将json转为obj
             success:function(res){
                 if(res.length==0) return 
-                function timeFn(d1,duration) {//di作为一个变量传进来
+                function timeFn(d1,duration) {//d1作为一个变量传进来
                     var dateBegin = new Date(d1);
                     var dateEnd = new Date();
                     var dateDiff = (dateBegin.getTime()+(8+duration)*60*60*1000)-dateEnd.getTime()  ;//时间差的毫秒数
+                    if(dateDiff>0){
+                        $("input[type=button].submits").val("账号出租中").css("background","#949694");
+                        $("input[type=button].submits").attr('disabled','disabled')
+                    }
                     if(dateDiff<=0){
                         $.ajax({
                             url:"http://localhost:1997/detail/remove",
@@ -179,9 +225,6 @@ $(function(){
                             }
                         })
                         return
-                    }else{
-                        $("input[type=button].submits").val("账号出租中").css("background","#949694");
-                        $("input[type=button].submits").attr('disabled','disabled')
                     }
                     var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
                     var leave1=dateDiff%(24*3600*1000)    //计算天数后剩余的毫秒数
@@ -196,6 +239,7 @@ $(function(){
                      if(hours<10) hours="0"+hours
                      if(minutes<10) minutes="0"+minutes
                      if(seconds<10) seconds="0"+seconds
+
                      var $CountDown=$(".CountDown")
                      $CountDown.html(`
                         <p>租赁倒计时</p>
@@ -207,10 +251,20 @@ $(function(){
                         </p>
                      `)
                 }
+                // /*如果该账号租用时间结束，则将该账号在搜索页面解除不可租状态 */
+                // $.ajax({
+                //     url:"http://localhost:1997/detail/yesgame",
+                //     type:"post",
+                //     data:{game_id},
+                //     dataType:"json",
+                //     success:function(res){
+                        
+                //     }
+                // })
                 var time=res[0].starting_date.replace(/T/,' ').replace('.000Z','');
                 timeFn(time,res[0].duration);
-                        setInterval(function(){
-                        timeFn(time,res[0].duration);
+                setInterval(function(){
+                    timeFn(time,res[0].duration);
                 },1000)
             }
             })
@@ -257,6 +311,8 @@ $(function(){
             $max.css("background-position",`-${40/25*left}px -${40/25*top}px`)
         })
         
+        
+
         
 })
 

@@ -39,7 +39,54 @@ $(function(){
 			}
 		}
 	})
-	
+
+	/*左侧游戏分类列表特效 */
+	var $lis=$(".classify-top").children();
+	var x;
+	for(var y=0;y<$lis.length;y++){
+		$lis.eq(y).mouseover(function(){
+			$(".details").css({"height":"100%","visibility":"visible"})
+			if($(this).is($lis.eq(0))||$(this).is($lis.eq(2))) x=0
+			if($(this).is($lis.eq(1))||$(this).is($lis.eq(3))) x=1
+			console.log(x)
+			var $divs=$(".details").children().eq(x).children()
+			for(var i=0;i<$divs.length;i++){
+				$divs.eq(i).css({"transform":"rotate3d(1,0,0,0deg)","visibility":"visible","opacity":"1"})
+			}
+		})
+		$lis.eq(y).mouseout(function(){
+			$(".details").css({"height":"100%","visibility":"hidden"})
+			if($(this).is($lis.eq(0))||$(this).is($lis.eq(2))) x=0
+			if($(this).is($lis.eq(1))||$(this).is($lis.eq(3))) x=1
+			var $divs=$(".details").children().eq(x).children()
+			for(var i=0;i<$divs.length;i++){
+				$divs.eq(i).css({"transform":"rotate3d(1,0,0,-90deg)","visibility":"hidden","opacity":"0"})
+			}
+			$(".details").mouseover(function(){
+				$(".details").css({"height":"100%","visibility":"visible"})
+				if($(this).is($lis.eq(0))||$(this).is($lis.eq(2))) x=0
+				if($(this).is($lis.eq(1))||$(this).is($lis.eq(3))) x=1
+				var $divs=$(".details").children().eq(x).children()
+				for(var i=0;i<$divs.length;i++){
+					$divs.eq(i).css({"transform":"rotate3d(1,0,0,0deg)","visibility":"visible","opacity":"1"})
+				}
+			})
+		})
+		$(".details").mouseout(function(){
+			$(".details").css({"height":"100%","visibility":"hidden"})
+			if($(this).is($lis.eq(0))||$(this).is($lis.eq(2))) x=0
+			if($(this).is($lis.eq(1))||$(this).is($lis.eq(3))) x=1
+			var $divs=$(".details").children().eq(x).children()
+			for(var i=0;i<$divs.length;i++){
+				$divs.eq(i).css({"transform":"rotate3d(1,0,0,-90deg)","visibility":"hidden","opacity":"0"})
+			}
+		})
+	}
+
+
+
+
+	/*下侧帮助中心 */
 	var bzzxs=document.querySelectorAll("[data-toggle=bzzx]")
 	for(var bzzx of bzzxs){
 		bzzx.onmouseover=function(){
@@ -68,7 +115,7 @@ $(function(){
 			div.style.zIndex=10;
 		}
 	}
-
+	/*右侧最新公告 */
 	var zxggs=document.querySelectorAll("[data-toggle=zxgg]");
 	for(var zxgg of zxggs){
 		zxgg.onmouseover=function(){

@@ -12,7 +12,7 @@
 	<header>
 		<div class="header">
 			<div class="header-logo">
-				<a href="#"><img src="zuhao/regg1_03.jpg" alt="" id="logo"></a>
+				<a href="index.html"><img src="zuhao/regg1_03.jpg" alt="" id="logo"></a>
 				<p>|专业的游戏服务平台</p>
 			</div>
 			<div>
@@ -129,6 +129,7 @@
 			function verify(){
 				var uname=$("uname").value;
 				$("name").innerHTML="";
+				if(uname.replace(/(^\s*)|(\s*$)/g, "")!=""){
 				var xhr=createXhr();
 				xhr.onreadystatechange=function(){
 					if(xhr.readyState==4&&xhr.status==200){
@@ -147,7 +148,8 @@
 					xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 					var sendMsg="uname="+uname;
 					xhr.send(sendMsg);
-					}
+				}
+			}
 
 			function yz(){
 				var uname=$("uname").value;

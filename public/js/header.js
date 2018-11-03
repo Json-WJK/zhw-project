@@ -143,7 +143,7 @@ $(function(){
             data:{date},
             success:function(){
                 setInterval(function(){
-                    location.href="index.html"//退出登录则返回首页
+                    location.reload(true)//退出登录则返回首页
                 },2000)      
             }
         })

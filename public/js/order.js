@@ -119,13 +119,12 @@ $(function(){
             var m=myDate.getMinutes(); 
             var h=myDate.getHours(); 
             var DateTime=year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
-            console.log(DateTime)
             var dates=h+":"+m
             var uname=$(".uname").html();
             var duration=$(".count").val()
             /*支付成功后，将该账号添加至个人信息租过的账号列表中 */
             $.ajax({
-                url:"http://localhost:1997/order//add",
+                url:"http://localhost:1997/order/add",
                 type:"post",
                 data:{game_id,uname,DateTime,duration,dates},
                 dataType:"json",
@@ -146,6 +145,29 @@ $(function(){
                 }
             })
         }
+        function nogame(){//修改账号在搜索页面为不可租状态
+            $.ajax({
+                url:"http://localhost:1997/order/nogame",
+                type:"post",
+                data:{game_id},
+                dataType:"json",
+                success:function(res){   
+                }
+            })
+        }
+        function often(){
+            var uname=$(".uname").html();
+            console.log(uname,game_id)
+            $.ajax({
+                url:"http://localhost:1997/order/often",
+                type:"post",
+                data:{game_id,uname},
+                dataType:"json",
+                success:function(res){   
+                }
+            })
+        }
+
         // 点击确认下单
         $(".qr").click(function(){
             var uname=$(".top-center>ul>li>a.uname").html()
@@ -162,8 +184,10 @@ $(function(){
                     if(balance>$total.html().substr(1)){
                         $PayPwd.hide()
                         $hint.show()
-                        win()//租号成功
+                        win()//租号成功 向用户租过的账号添加数据
                         fee()//完成扣费
+                        // nogame()//修改账号在搜索页面为不可租状态
+                        often()//将租用的账号添加进用户信息中
                     }else{
                         $PayPwd.hide()
                         alert("余额不足，请充值")

@@ -17,6 +17,7 @@ $(function(){
             isuser=true
         }); 
         top.click(function(){
+            clearInterval(rtop)
             rtop=setInterval(function(){
                 isuser=false;
                 var tops=$(document).scrollTop()//当前屏幕高度

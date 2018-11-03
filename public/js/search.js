@@ -37,7 +37,7 @@ $(function(){
                         <a href="account-detail.html?game_id=${game_id}"><img src="${game_overall_img}" alt="" width:></a>
                     </div>
                     <div class="account-list-b"> 
-                        <a href="account-detail.html?game_id=${game_id}">${game_rent}</a><br>
+                        <a href="account-detail.html?game_id=${game_id}" class="game_rent">${game_rent}</a><br>
                         <a href="account-detail.html?game_id=${game_id}">${game_describe}</a><br>
                         <span>${game_server}</span><br>
                         <span>近期出租</span><span>${game_number}</span><span>次</span> </span><span>[到时不下线]</span><br>
@@ -74,6 +74,16 @@ $(function(){
       /*查询结果*/
       var element=document.getElementById("account-list").children[1];
       element.innerHTML=html;
+      var $as=$(".game_rent");
+      for(i=0;i<$as.length;i++){
+        if($as.eq(i).html()=="[账号出租中]") 
+        $as.eq(i).css({"color":"rgb(148, 150, 148)","text-decoration":"line-through"})
+      }
+      // for(as of $as){
+      // // if(as.html()=="[账号出租中]") as.css("color","#fff")
+      //      console.log(as)
+      // }
+
       
       // $(".tiaoz").keyup(function(e){
       //   if(e.keyCode==13)
@@ -187,7 +197,6 @@ $(function(){
       }
     })
     var tiaok=$paging.children("button");
-    console.log($paging.children("button"))
     tiaoz.keyup(function(e){
         if(e.keyCode==13)
         tiaok.click()

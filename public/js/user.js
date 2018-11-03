@@ -12,13 +12,13 @@ $(function(){
             if(res.ok==0) location.href="verify.html"+"?"+url1+"?"+url2;
         }
     })
+    /*用户信息*/
     $.ajax({
         url:"http://localhost:1997/user/data",
         type:"post",
         data:{uname},
         dataType:"json",
         success:function(res){
-            console.log(res)
             var {
                 avatar,
                 balance,
@@ -69,8 +69,72 @@ $(function(){
     var m=myDate.getMinutes(); 
     var h=myDate.getHours(); 
     var date=h+":"+m
+    /*正在租用的账号 */
     $.ajax({
         url:"http://localhost:1997/user/lease",
+        type:"post",
+        data:{uname,date},
+        dataType:"json",
+        success:function(res){
+            var html="";
+            /*将返回的结果拼接到一起 */
+            for(var i in res.name){//将每个name放入每个account中
+                res.account[i].game_name=res.name[i].game_name
+                res.account[i].duration=res.duration[i].duration
+            }
+            for(var div of res.account){
+            var {
+                game_describe,
+                game_overall_img,
+                game_prices,
+                game_hire,
+                game_name,
+                game_id,
+                duration
+            }=div
+            html+=`
+            <div class="be-list">
+                <div class="zh-list">
+                    <img src="${game_overall_img}" alt="">
+                    <div>
+                        <p>订单号：107613351 货架号：1937724</p>
+                        <p>${game_describe}</p>
+                        <p>角色名：${game_name}</p>
+                    </div>
+                    <div>
+                        <p>商品价格：${game_prices}元/小时</p>
+                        <p>下单时间：${duration}小时</p>
+                        <p>押金：${game_hire.toFixed(2)}</p>
+                    </div>
+                    <span>已完成</span>
+                    <span><a href="account-detail.html?game_id=${game_id}">订单详情</a></span>
+                </div>
+            </div>
+            `
+        }
+            $(".r-tenant").children().last().before(html)
+            // $(".r-classifys").on("click",".r-class-bj",function(){
+            //     $(".r-classifys").children().css("border-bottom","none")
+            //     $(this).css("border-bottom","1px solid red")
+
+            //     var $list=$(".collect-list")//最后一个
+            //     var $be=$(".be-list")//第一
+            //     var $of=$(".often-list")//中间
+            //     $list.css("display","none")
+            //     $be.css("display","none")
+            //     $of.css("display","none")
+                
+            //     if($(this).is($(".r-classifys>span").last())){
+            //         $list.css("display","block")
+            //     }else if($(this).is($(".r-classifys>span").first())){
+            //         $be.css("display","block")
+            //     }else $of.css("display","block")
+            // })
+        }
+    })
+    /*经常租用的账号 */
+    $.ajax({
+        url:"http://localhost:1997/user/often",
         type:"post",
         data:{uname,date},
         dataType:"json",
@@ -90,7 +154,7 @@ $(function(){
                 game_id
             }=div
             html+=`
-            <div class="be-list">
+            <div class="often-list">
                 <div class="zh-list">
                     <img src="${game_overall_img}" alt="">
                     <div>
@@ -100,19 +164,75 @@ $(function(){
                     </div>
                     <div>
                         <p>商品价格：${game_prices}元/小时</p>
-                        <p>下单时间：2小时</p>
                         <p>押金：${game_hire.toFixed(2)}</p>
                     </div>
                     <span>已完成</span>
                     <span><a href="account-detail.html?game_id=${game_id}">订单详情</a></span>
                 </div>
-                <div class="more">
-                        查看更多
+            </div>
+            `
+        }
+        $(".r-tenant").children().last().before(html)
+            // $(".r-classifys").on("click",".r-class-bj",function(){
+            //     $(".r-classifys").children().css("border-bottom","none")
+            //     $(this).css("border-bottom","1px solid red")
+
+            //     var $list=$(".collect-list")//最后一个
+            //     var $be=$(".be-list")//第一
+            //     var $of=$(".often-list")//中间
+            //     $list.css("display","none")
+            //     $be.css("display","none")
+            //     $of.css("display","none")
+                
+            //     if($(this).is($(".r-classifys>span").last())){
+            //         $list.css("display","block")
+            //     }else if($(this).is($(".r-classifys>span").first())){
+            //         $be.css("display","block")
+            //     }else $of.css("display","block")
+            // })
+        }
+    })
+    /*用户收藏的账号 */
+    $.ajax({
+        url:"http://localhost:1997/user/enshrine",
+        type:"post",
+        data:{uname,date},
+        dataType:"json",
+        success:function(res){
+            var html="";
+            /*将返回的结果拼接到一起 */
+            for(var i in res.name){//将每个name放入每个account中
+                res.account[i].game_name=res.name[i].game_name
+            }
+            for(var div of res.account){
+            var {
+                game_describe,
+                game_overall_img,
+                game_prices,
+                game_hire,
+                game_name,
+                game_id
+            }=div
+            html+=`
+            <div class="collect-list">
+                <div class="zh-list">
+                    <img src="${game_overall_img}" alt="">
+                    <div>
+                        <p>订单号：107613351 货架号：1937724</p>
+                        <p>${game_describe}</p>
+                        <p>角色名：${game_name}</p>
+                    </div>
+                    <div>
+                        <p>商品价格：${game_prices}元/小时</p>
+                        <p>押金：${game_hire.toFixed(2)}</p>
+                    </div>
+                    <span>已完成</span>
+                    <span><a href="account-detail.html?game_id=${game_id}">订单详情</a></span>
                 </div>
             </div>
             `
         }
-            $(".r-tenant").append(html)
+        $(".r-tenant").children().last().before(html)
             $(".r-classifys").on("click",".r-class-bj",function(){
                 $(".r-classifys").children().css("border-bottom","none")
                 $(this).css("border-bottom","1px solid red")
